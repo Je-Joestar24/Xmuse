@@ -14,7 +14,7 @@
 }
 
 :root {
-    --bg: rgb(148, 0, 0);
+    --bg: rgb(163, 1, 1);
     --white: rgb(255, 249, 239);
     --black: rgb(41, 41, 41);
     --bg-2: #EAF8F9;
@@ -32,10 +32,20 @@ body {
     background-color: var(--bg);
 }
 
+button {
+
+    cursor: pointer;
+}
+
 /* debugger */
-.border {
+.border-w {
     outline: solid white 3px;
 }
+
+.border-b {
+    outline: solid rgb(0, 0, 0) 3px;
+}
+
 
 .black {
     background-color: black;
@@ -53,12 +63,73 @@ body {
     width: 60%;
 }
 
-button{
+button {
     color: var(--white);
     font-family: 'Times New Roman', Times, serif;
 }
-/* page-1 */
 
+
+.wrapper:nth-of-type(odd) {
+    background: url('../images/trees_pattern_01.png') no-repeat bottom, url('../images/snow_pattern.png'), url('../images/snow_pattern2.png');
+    color: var(--white);
+}
+
+
+.wrapper:nth-of-type(even) {
+    background-color: var(--bg-2);
+    color: var(--black);
+}
+
+/* all the titles for the next pages styles */
+
+/* title part */
+.no-welcome .title-container h1 {
+    font-family: 'Chunk';
+    margin-top: 2em;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+/* green divider */
+.no-welcome:nth-of-type(even) .title-container p {
+    background: url('../images/divider_green.png') no-repeat center;
+    margin: auto;
+    padding: 1em 0px;
+    border-radius: 200%;
+}
+
+/* white divider */
+.no-welcome:nth-of-type(odd) .title-container>p {
+    background: url('../images/divider_white_s.png') no-repeat center;
+    margin: auto;
+    padding: 1em 0px;
+    border-radius: 200%;
+}
+
+/* Sub title */
+.no-welcome .title-container h4 {
+    font-size: .9em;
+    font-family: 'Raleway';
+    font-weight: 100;
+}
+
+/* all default buttons for non welcome page */
+
+.no-welcome button {
+    width: fit-content;
+    padding: .8em 1.5em;
+    font-size: 1.3em;
+    font-weight: 600;
+    background: transparent;
+    background: url('../images/buy_button_normal.png') center no-repeat;
+    background-size: contain;
+    margin: auto;
+    border: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    /* Shadow effect */
+}
+
+/* **********************************page-1********************************** */
 
 /* title container */
 #page-1 .title-container {
@@ -73,15 +144,6 @@ button{
     color: var(--white);
     margin-top: 2%;
     overflow: visible;
-}
-
-#page-1 .page {
-    position: relative;
-}
-
-/* page 1 dual background */
-#page-1.wrapper {
-    background: url('../images/trees_pattern_01.png') no-repeat bottom, url('../images/snow_pattern.png'), url('../images/snow_pattern2.png');
 }
 
 /* title glow efix */
@@ -161,11 +223,9 @@ button{
 
 
 
-/* page-2 */
+/* ***************************************page-2*************************************** */
 
 #page-2.wrapper {
-    background-color: var(--bg-2);
-    color: var(--black);
     height: 70vh;
 }
 
@@ -176,26 +236,13 @@ button{
 }
 
 #page-2 .title-container h1 {
-    font-family: 'Chunk';
-    margin-top: 2em;
-    font-size: 2.2em;
-    font-weight: 600;
     margin-bottom: .1em;
 }
 
 /* green divider */
 #page-2 .title-container p {
     width: 50%;
-    height: 1em;
-    background: url('../images/divider_green.png') no-repeat center;
     margin: auto;
-    padding: 1em 0px;
-    border-radius: 200%;
-}
-
-#page-2 .title-container h4 {
-    font-size: .9em;
-    font-family: 'Raleway';
 }
 
 /* product container */
@@ -234,6 +281,7 @@ button{
     height: 85%;
     margin: 0px;
     object-fit: contain;
+    cursor: pointer;
 }
 
 /* product descriptions */
@@ -242,26 +290,168 @@ button{
     font-size: .9em;
 }
 
-#page-2 .desc h4{
+#page-2 .desc h4 {
     font-family: 'Chunk';
     font-size: 1.8em;
 }
 
 /* Buy button */
-#page-2 button{
-    width: fit-content;
-    padding: 1em 1.5em;
-    font-size: 1.3em;
-    font-weight: 600;
-    background: url('../images/buy_button_normal.png') center no-repeat;
-    background-size: contain;
+
+
+/* ************************************Page 3************************************ */
+
+#page-3.wrapper {
+    height: 120vh;
+    flex-direction: column;
+}
+
+/* Upper clouds */
+
+#page-3 header {
+    height: 18vh;
+    margin-top: 0px;
+    width: 100%;
+    background: url('../images/section_footer.png') no-repeat center top;
+    background-size: cover;
+}
+
+#page-3 .page {
+    flex: 1;
     margin: auto;
-    border: none;
+    display: flex;
+    flex-direction: column;
 }
 
 
-/* Page 3 */
+/* title container for page 3 */
+#page-3 .title-container {
+    margin: 5em auto;
+    margin-bottom: 2.4em;
+    text-align: center;
+}
 
-#page-3.wrapper{
-    background: url('../images/section_footer.png') no-repeat;
+
+#page-3 .title-container h1 {
+    font-size: 2.4em;
+    font-weight: 500;
+}
+
+#page-3 .title-container p {
+    margin-top: .5em;
+    width: 100%;
+}
+
+#page-3 .title-container h4 {
+    font-weight: 100;
+}
+
+/* I frame */
+
+#page-3 .page iframe {
+    width: 40vw;
+    height: 45vh;
+    margin: auto;
+    margin-top: .5em;
+}
+
+/* *****************************Page 4 - 6 or the product page***************************** */
+#page-4 header {
+    text-align: center;
+}
+
+#page-4 .product-container {
+    margin: 1em auto;
+    height: 50vh;
+    width: 50vw;
+    position: relative;
+}
+
+#page-4 .product-container .tempo img {
+    object-fit: contain;
+    height: 50vh;
+    width: 50vw;
+}
+
+/* temporary technique */
+#page-4 .product-container .tempo {
+    overflow: auto;
+    display: flex;
+    height: 50vh;
+    width: 50vw;
+}
+
+#page-4 .product-container .tempo::-webkit-scrollbar {
+    display: none;
+}
+
+#page-4 footer {
+    margin: auto;
+    display: flex;
+    width: 48vw;
+}
+
+#page-4 footer article {
+    flex: 1;
+}
+
+#page-4 footer div {
+    margin-left: auto;
+    flex: .3;
+    text-align: center;
+}
+
+#page-4 footer h3 {
+    font-family: 'Raleway';
+    font-size: 1.8em;
+    margin: .2em;
+}
+
+#page-4 footer button {
+    flex: .3;
+}
+
+
+/* for arrow navigation */
+#page-4 .product-container svg {
+    color: var(--white);
+    opacity: .7;
+    cursor: pointer;
+    ;
+}
+
+#page-4 .product-container>svg {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    height: 2em;
+    width: 2em;
+    z-index: 1;
+}
+
+#page-4 .product-container>svg:first-of-type {
+    left: 0;
+}
+
+#page-4 .product-container form {
+    position: absolute;
+    display: flex;
+    gap: 1em;
+    right: 50%;
+    transform: translateX(100%);
+    bottom: 1em;
+    width: 4em;
+}
+
+#page-4  form svg {
+    height: auto;
+    border-radius: 100%;
+    border: var(--white) solid 1px;
+}
+
+#page-4 .product-container svg:active {
+    opacity: 1;
+}
+
+#page-4 form svg:active {
+    background-color: white;
 }
