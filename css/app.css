@@ -1,0 +1,267 @@
+@font-face {
+    font-family: 'Chunk';
+    src: url('../fonts/Chunk.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pacifico';
+    src: url('../fonts/Pacifico.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway.ttf') format('truetype');
+}
+
+:root {
+    --bg: rgb(148, 0, 0);
+    --white: rgb(255, 249, 239);
+    --black: rgb(41, 41, 41);
+    --bg-2: #EAF8F9;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+/* debugger */
+.border {
+    outline: solid white 3px;
+}
+
+.black {
+    background-color: black;
+}
+
+/* reusable */
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.page {
+    width: 60%;
+}
+
+button{
+    color: var(--white);
+    font-family: 'Times New Roman', Times, serif;
+}
+/* page-1 */
+
+
+/* title container */
+#page-1 .title-container {
+    padding-top: 1em;
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    font-size: 3.5em;
+    color: var(--white);
+    margin-top: 2%;
+    overflow: visible;
+}
+
+#page-1 .page {
+    position: relative;
+}
+
+/* page 1 dual background */
+#page-1.wrapper {
+    background: url('../images/trees_pattern_01.png') no-repeat bottom, url('../images/snow_pattern.png'), url('../images/snow_pattern2.png');
+}
+
+/* title glow efix */
+#page-1 .page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/red_blink2.png') center/cover no-repeat;
+    opacity: 0.9;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+/* Merry Christmas & sale */
+
+#page-1 .title-container h1 {
+    margin: 0px auto;
+    font-weight: 100;
+}
+
+#page-1 .title-container h1:first-child {
+    font-family: "Pacifico", sans-serif;
+    line-height: 1em;
+}
+
+#page-1 .title-container h1:last-of-type {
+    font-family: "Chunk", sans-serif;
+    font-size: 3.1em;
+    line-height: .5em;
+    margin-bottom: .2em;
+}
+
+/* divider white */
+#page-1 .title-container p {
+    color: transparent;
+    outline: transparent;
+    border: transparent;
+    background: url('../images/divider_white.png');
+    background-position: center;
+    background-size: contain;
+    width: 8em;
+    height: .06em;
+    border-radius: 200%;
+    margin: .4em auto;
+}
+
+
+#page-1 .title-container h2 {
+    margin: 0px auto;
+    font-family: "Raleway";
+    font-size: .95em;
+    font-weight: 100;
+}
+
+#page-1 .title-container h2:last-of-type {
+    font-size: 2em;
+    font-weight: 100;
+}
+
+/* learn more button */
+
+#page-1 .title-container button {
+    background: url('../images/cta_button_normal.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    margin-top: .5em;
+    font-weight: 100;
+    font-size: .4em;
+    color: var(--white);
+    padding: .7em;
+}
+
+
+
+/* page-2 */
+
+#page-2.wrapper {
+    background-color: var(--bg-2);
+    color: var(--black);
+    height: 70vh;
+}
+
+/* Title of page 2 */
+#page-2 .title-container {
+    padding: 1em;
+    text-align: center;
+}
+
+#page-2 .title-container h1 {
+    font-family: 'Chunk';
+    margin-top: 2em;
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: .1em;
+}
+
+/* green divider */
+#page-2 .title-container p {
+    width: 50%;
+    height: 1em;
+    background: url('../images/divider_green.png') no-repeat center;
+    margin: auto;
+    padding: 1em 0px;
+    border-radius: 200%;
+}
+
+#page-2 .title-container h4 {
+    font-size: .9em;
+    font-family: 'Raleway';
+}
+
+/* product container */
+
+#page-2 .product-container {
+    margin-top: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+
+
+/* the products */
+#page-2 .card {
+    display: grid;
+    grid-template-rows: 1fr .1fr .1fr;
+    gap: .5em;
+}
+
+/* product head part */
+#page-2 .card .head {
+    background: url('../images/product_background_01.png') no-repeat center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-2 .card .head:hover {
+    background: none;
+    transition: 0.3s;
+    background: url('../images/product_background_02.png') no-repeat center;
+}
+
+#page-2 .card .head img {
+    margin: auto;
+    height: 85%;
+    margin: 0px;
+    object-fit: contain;
+}
+
+/* product descriptions */
+#page-2 .card .desc {
+    font-family: 'Raleway';
+    font-size: .9em;
+}
+
+#page-2 .desc h4{
+    font-family: 'Chunk';
+    font-size: 1.8em;
+}
+
+/* Buy button */
+#page-2 button{
+    width: fit-content;
+    padding: 1em 1.5em;
+    font-size: 1.3em;
+    font-weight: 600;
+    background: url('../images/buy_button_normal.png') center no-repeat;
+    background-size: contain;
+    margin: auto;
+    border: none;
+}
+
+
+/* Page 3 */
+
+#page-3.wrapper{
+    background: url('../images/section_footer.png') no-repeat;
+}
