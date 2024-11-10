@@ -18,6 +18,7 @@
             <h2>70% OFF</h2>
             <p></p>
             <button>LEARN MORE</button>
+            <img src="images/icon.png" alt="">
           </div>
         </div>
       </div>
@@ -85,65 +86,134 @@
         </div>
       </div>
 
-      <div id="page-4" class="wrapper no-welcome product-page">
+      <!-- products loaded here next to page-3 -->
+
+      <div id="register" class="wrapper no-welcome">
         <header></header>
         <div class="page">
-          <header class="title-container">
-            <h1>ABOUT PRODUCT #1</h1>
+          <div class="title-container">
+            <h1>WANT MORE? SUBSCRIBE!</h1>
             <p></p>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-          </header>
-          <div class="product-container">
-            <div class="tempo">
-              <img src="images/product_01_preview_01.jpg" alt="" />
-              <img src="images/product_01_preview_02.jpg" alt="" />
-              <img src="images/product_01_preview_03.jpg" alt="" />
-            </div>
-            <!-- arrrow left -->
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="4"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            <!-- arrow right -->
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="4"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-            <!-- image nav -->
-            <form action="#">
-              <svg  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" /></svg>
-              <svg  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" /></svg>
-              <svg  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" /></svg>
-            </form>
+            <h4>And get the latest amazing offers first</h4>
           </div>
-          <footer>
-            <article>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum,
-              sequi enim tempora consequatur laboriosam reiciendis repellendus
-              similique adipisci! Sunt eligendi quos magnam soluta porro iste
-              omnis dolore blanditiis quas quo. Lorem ipsum dolor, sit amet
-              consectetur adipisicing elit. Quidem repellat assumenda dicta
-              ullam asperiores, praesentium numquam accusantium ex harum
-              voluptatibus, eaque saepe deserunt nulla, ad error. Nobis
-              provident cumque iure! lore
-            </article>
-            <div>
-              <h3>$59.50</h3>
-              <button>BUY NOW</button>
-            </div>
-          </footer>
+          <!-- register form -->
+          <form action="#" id="reg-form">
+            <input placeholder="ENTER NAME" type="text" />
+            <input placeholder="ENTER EMAIL" type="text" />
+            <button type="submit">SUBMIT</button>
+          </form>
         </div>
       </div>
-    </div>
 
+      <!-- summary part of the screen wich have the contacs -->
+      <div id="summary" class="wrapper no-welcome">
+        <header></header>
+        <div class="page">
+          <div class="title-container">
+            <h1>ARE YOU INTERESTED?</h1>
+            <p></p>
+            <h4>Get intouch with us</h4>
+          </div>
+          <div class="body-contents">
+            <div class="contacts-1">
+              <!-- I use js to the hover effects to minimize the css cost -->
+              <div class="card">
+                <img
+                  src="/images/icon_mail_01.png"
+                  onmouseover="this.src='/images/icon_mail_02.png'"
+                  onmouseout="this.src='/images/icon_mail_01.png'"
+                  alt="mail icon"
+                />
+                <footer>
+                  <p>Sales: <span>sales@supersale.com</span></p>
+                  <p>Support: <span>support@supersale.com</span></p>
+                </footer>
+              </div>
+              <div class="card">
+                <img
+                  src="/images/icon_call_01.png"
+                  onmouseover="this.src='/images/icon_call_02.png'"
+                  onmouseout="this.src='/images/icon_call_01.png'"
+                  alt="call icon"
+                />
+                <footer>
+                  <p>Sales: <span>+1 123 456 7890</span></p>
+                  <p>Support: <span>+1 123 456 9578</span></p>
+                </footer>
+              </div>
+              <div class="card">
+                <img
+                  src="/images/icon_address_01.png"
+                  onmouseover="this.src='/images/icon_address_02.png'"
+                  onmouseout="this.src='/images/icon_address_01.png'"
+                  alt="address icon"
+                />
+                <div class="contacts">
+                  <p>
+                    Office: <span>Unit C2, St.Vincdent's Trading Est.</span>
+                  </p>
+                  <p><span>FeederRoad, London, UK</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contacts-2">
+              <img
+                src="images/icon_fb_01.png"
+                onmouseover="this.src='/images/icon_fb_02.png'"
+                onmouseout="this.src='/images/icon_fb_01.png'"
+                alt="fb icon"
+              />
+              <img
+                src="images/icon_twitter_01.png"
+                onmouseover="this.src='/images/icon_twitter_02.png'"
+                onmouseout="this.src='/images/icon_twitter_01.png'"
+                alt="twitter icon"
+              />
+              <img
+                src="images/icon_gplus_01.png"
+                onmouseover="this.src='/images/icon_gplus_02.png'"
+                onmouseout="this.src='/images/icon_gplus_01.png'"
+                alt="googleplus"
+              />
+              <img
+                src="images/icon_instagram_01.png"
+                onmouseover="this.src='/images/icon_instagram_02.png'"
+                onmouseout="this.src='/images/icon_instagram_01.png'"
+                alt="instagram icon"
+              />
+              <img
+                src="images/icon_pinterest_01.png"
+                onmouseover="this.src='/images/icon_pinterest_02.png'"
+                onmouseout="this.src='/images/icon_pinterest_01.png'"
+                alt="pinterest icon"
+              />
+              <img
+                src="images/icon_tumblr_01.png"
+                onmouseover="this.src='/images/icon_tumblr_02.png'"
+                onmouseout="this.src='/images/icon_tumblr_01.png'"
+                alt="tumblr icon"
+              />
+              <img
+                src="images/icon_vimeo_01.png"
+                onmouseover="this.src='/images/icon_vimeo_02.png'"
+                onmouseout="this.src='/images/icon_vimeo_01.png'"
+                alt="vimeo icon"
+              />
+            </div>
+          </div>
+        </div>
+        <footer>
+          <p>
+            ©XMuse - Christmas Sale / Promo Landing Muse Template by Vinyl@unkie
+          </p>
+          <p>All right reserved. You can buy this template.</p>
+        </footer>
+      </div>
+    </div>
+    <nav id="side-nav">
+      <ul class="nav"><li><a href="#"></a></li><li><a href="#"></a></li><li><a href="#"></a></li><li><a href="#"></a></li><li><a href="#"></a></li><li><a href="#"></a></li><li><a href="#"></a></li><li><a href="#"></a></li></ul>
+    </nav>
     <script src="js/app.js"></script>
   </body>
 </html>

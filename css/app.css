@@ -13,11 +13,21 @@
     src: url('../fonts/Raleway.ttf') format('truetype');
 }
 
+
+/* re usable variables */
 :root {
     --bg: rgb(163, 1, 1);
     --white: rgb(255, 249, 239);
     --black: rgb(41, 41, 41);
     --bg-2: #EAF8F9;
+    --green: #95D830;
+    --fb: #3b5998;
+    --twit: #00aced;
+    --gplus: #DB4437;
+    --insta: #964B00;
+    --pin: #C8232C;
+    --tumb: #34465D;
+    --vim: #86C9EF;
 }
 
 body::-webkit-scrollbar {
@@ -29,7 +39,14 @@ body::-webkit-scrollbar {
 }
 
 body {
+    background-image: url('../images/snow_pattern.png'), url('../images/snow_pattern2.png');
     background-color: var(--bg);
+    background-attachment: fixed;
+    /* This makes the background images stay fixed */
+    background-size: cover;
+    /* Optional: Adjusts the background size to cover the viewport */
+    height: 100vh;
+    overflow: auto;
 }
 
 button {
@@ -53,27 +70,37 @@ button {
 
 /* reusable */
 
+
+/* wrapper that spand to the whole width */
 .wrapper {
     height: 100vh;
     display: flex;
     justify-content: center;
 }
 
+
+/* the main container's widd */
 .page {
     width: 60%;
 }
+
 
 button {
     color: var(--white);
     font-family: 'Times New Roman', Times, serif;
 }
 
-
-.wrapper:nth-of-type(odd) {
-    background: url('../images/trees_pattern_01.png') no-repeat bottom, url('../images/snow_pattern.png'), url('../images/snow_pattern2.png');
-    color: var(--white);
+/* all title container text centers */
+.title-container {
+    text-align: center;
 }
 
+/* The logical interval designs for the wrapper */
+
+.wrapper:nth-of-type(odd) {
+    background: url('../images/trees_pattern_01.png') no-repeat bottom;
+    color: var(--white);
+}
 
 .wrapper:nth-of-type(even) {
     background-color: var(--bg-2);
@@ -162,17 +189,17 @@ button {
 
 /* Merry Christmas & sale */
 
-#page-1 .title-container h1 {
+#page-1  h1 {
     margin: 0px auto;
     font-weight: 100;
 }
 
-#page-1 .title-container h1:first-child {
+#page-1  h1:first-child {
     font-family: "Pacifico", sans-serif;
     line-height: 1em;
 }
 
-#page-1 .title-container h1:last-of-type {
+#page-1  h1:last-of-type {
     font-family: "Chunk", sans-serif;
     font-size: 3.1em;
     line-height: .5em;
@@ -180,7 +207,7 @@ button {
 }
 
 /* divider white */
-#page-1 .title-container p {
+#page-1  p {
     color: transparent;
     outline: transparent;
     border: transparent;
@@ -194,21 +221,21 @@ button {
 }
 
 
-#page-1 .title-container h2 {
+#page-1 h2 {
     margin: 0px auto;
     font-family: "Raleway";
     font-size: .95em;
     font-weight: 100;
 }
 
-#page-1 .title-container h2:last-of-type {
+#page-1 h2:last-of-type {
     font-size: 2em;
     font-weight: 100;
 }
 
 /* learn more button */
 
-#page-1 .title-container button {
+#page-1 button {
     background: url('../images/cta_button_normal.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -221,7 +248,13 @@ button {
     padding: .7em;
 }
 
+/* icon */
 
+#page-1 img{
+    width: 1.8em;
+    padding-top: .7em;
+    margin: auto;
+}
 
 /* ***************************************page-2*************************************** */
 
@@ -232,7 +265,6 @@ button {
 /* Title of page 2 */
 #page-2 .title-container {
     padding: 1em;
-    text-align: center;
 }
 
 #page-2 .title-container h1 {
@@ -300,14 +332,14 @@ button {
 
 /* ************************************Page 3************************************ */
 
-#page-3.wrapper {
+/* Select all odd .wrapper elements except the first */
+.wrapper:nth-of-type(2n + 1):not(:first-of-type) {
     height: 120vh;
     flex-direction: column;
 }
 
-/* Upper clouds */
-
-#page-3 header {
+/* Upper clouds: Target odd headers except the first */
+.wrapper:nth-of-type(2n + 1):not(:first-of-type)>header {
     height: 18vh;
     margin-top: 0px;
     width: 100%;
@@ -315,7 +347,7 @@ button {
     background-size: cover;
 }
 
-#page-3 .page {
+.wrapper:nth-of-type(2n + 1):not(:first-of-type) .page {
     flex: 1;
     margin: auto;
     display: flex;
@@ -327,7 +359,6 @@ button {
 #page-3 .title-container {
     margin: 5em auto;
     margin-bottom: 2.4em;
-    text-align: center;
 }
 
 
@@ -355,71 +386,99 @@ button {
 }
 
 /* *****************************Page 4 - 6 or the product page***************************** */
-#page-4 header {
+
+
+/* the header part of the product containers */
+.product-page header {
     text-align: center;
 }
 
-#page-4 .product-container {
+.wrapper.product-page:nth-of-type(odd) header h1 {
+    margin-top: 0px;
+}
+
+/* for all white backgrounded products */
+.wrapper.product-page:nth-of-type(even) {
+    height: 85vh;
+}
+
+/* The product container */
+.product-page .product-container {
     margin: 1em auto;
     height: 50vh;
     width: 50vw;
     position: relative;
 }
 
-#page-4 .product-container .tempo img {
+
+/* image scrollable side */
+.product-page .product-container .tempo img {
     object-fit: contain;
     height: 50vh;
     width: 50vw;
 }
 
-/* temporary technique */
-#page-4 .product-container .tempo {
+/* temporary technique for scrolling*/
+.product-page .product-container .tempo {
     overflow: auto;
     display: flex;
     height: 50vh;
     width: 50vw;
 }
 
-#page-4 .product-container .tempo::-webkit-scrollbar {
+.product-page .product-container .tempo::-webkit-scrollbar {
     display: none;
 }
 
-#page-4 footer {
+/* The footer part of the product page */
+.product-page footer {
     margin: auto;
     display: flex;
     width: 48vw;
 }
 
-#page-4 footer article {
+/* every red background so that the discription won't be so high */
+.product-page:nth-of-type(odd) footer {
+    margin: auto;
+    margin-top: .5em;
+    display: flex;
+    width: 48vw;
+}
+
+/* article that seve as product info */
+.product-page footer article {
+    font-family: 'Raleway';
     flex: 1;
 }
 
-#page-4 footer div {
+/* this serve as price and buy now button */
+.product-page footer div {
     margin-left: auto;
     flex: .3;
     text-align: center;
 }
 
-#page-4 footer h3 {
+.product-page footer h3 {
     font-family: 'Raleway';
     font-size: 1.8em;
     margin: .2em;
 }
 
-#page-4 footer button {
+/* footer botton for buying flex */
+.product-page footer button {
     flex: .3;
 }
 
 
-/* for arrow navigation */
-#page-4 .product-container svg {
+/* for arrow navigation and bottom navigations */
+.product-page .product-container svg {
     color: var(--white);
     opacity: .7;
     cursor: pointer;
-    ;
 }
 
-#page-4 .product-container>svg {
+/* For :default vertical positions and at the right  */
+.product-page .product-container>svg {
     position: absolute;
     right: 0px;
     top: 50%;
@@ -428,11 +487,14 @@ button {
     z-index: 1;
 }
 
-#page-4 .product-container>svg:first-of-type {
+/* left arrow */
+.product-page .product-container>svg:first-of-type {
     left: 0;
 }
 
-#page-4 .product-container form {
+
+/* the bottom navigations for photo */
+.product-page .product-container form {
     position: absolute;
     display: flex;
     gap: 1em;
@@ -442,16 +504,192 @@ button {
     width: 4em;
 }
 
-#page-4  form svg {
+/* nav item styles */
+.product-page form svg {
     height: auto;
     border-radius: 100%;
     border: var(--white) solid 1px;
 }
 
-#page-4 .product-container svg:active {
+.product-page .product-container svg:active {
     opacity: 1;
 }
 
-#page-4 form svg:active {
+.product-page form svg:active {
     background-color: white;
+}
+
+
+/* *****************REGISTER PART***************** */
+
+/* modified height for the wrapper of registter */
+#register.wrapper {
+    height: 100vh;
+    background: url('../images/trees_pattern_01.png') no-repeat bottom, url('../images/red_blink2.png') no-repeat center bottom;
+}
+
+
+
+#register .title-container h1 {
+    font-size: 2.4em;
+}
+
+
+#register .title-container h4 {
+    font-size: 1em;
+}
+
+/* REGISTRATION FORM */
+#register form {
+    margin: 5em auto;
+    width: 40%;
+    height: 20vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1.5fr;
+    gap: 1em;
+}
+
+#reg-form input {
+    border-radius: .5em;
+    border: none;
+    padding: 0 1.5em;
+    font-size: 1em;
+    font-family: 'Raleway';
+    color: var(--black);
+}
+
+
+#reg-form input:focus {
+    border: none;
+    outline: none;
+}
+
+#reg-form button {
+    background: url('../images/cta_button_normal.png') right center no-repeat;
+    background-size: 100% 100%;
+    /* Stretches image to fit button width and height */
+    padding-left: 3.2em;
+    padding-right: 3.2em;
+}
+
+/* summary */
+#summary.wrapper {
+    position: relative;
+    height: 65vh;
+}
+
+
+#summary .title-container h4 {
+    margin-top: 1.5em;
+}
+
+#summary .body-contents {
+    margin-top: 3em;
+}
+
+/* contacts 1 which are the bigger icons with detailed contact */
+#summary .contacts-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#summary .card {
+    text-align: center;
+    font-family: 'Raleway';
+    display: grid;
+    gap: 2em;
+}
+
+#summary .card img {
+    margin: auto;
+}
+
+#summary .card p span:hover {
+    color: var(--green);
+    cursor: pointer;
+}
+
+
+/* Contacts 2 */
+
+#summary .contacts-2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 4em;
+    gap: 1em;
+}
+
+.contacts-2 img {
+    border: var(--black) solid .15em;
+    padding: .1em;
+    border-radius: 100%;
+}
+
+
+#summary>footer {
+    position: absolute;
+    bottom: 1.2em;
+    text-align: center;
+}
+
+
+/* hover effects one by one */
+
+
+#summary .contacts-2 img:hover {
+    border: var(--white) solid .15em;
+    background-color: var(--fb);/* fb as primary */
+}
+#summary .contacts-2 img:hover {
+    border: var(--white) solid .15em;
+}
+
+#summary .contacts-2 img:nth-child(2):hover {
+    background-color: var(--twit); /* Twitter */
+}
+
+#summary .contacts-2 img:nth-child(3):hover {
+    background-color: var(--gplus); /* Google Plus */
+}
+
+#summary .contacts-2 img:nth-child(4):hover {
+    background-color: var(--insta); /* Instagram */
+}
+
+#summary .contacts-2 img:nth-child(5):hover {
+    background-color: var(--pin); /* Pinterest */
+}
+
+#summary .contacts-2 img:nth-child(6):hover {
+    background-color: var(--tumb); /* Tumblr */
+}
+
+#summary .contacts-2 img:nth-child(7):hover {
+    background-color: var(--vim); /* Vimeo */
+}
+
+/* navigation */
+
+#side-nav{
+    position: fixed;
+    right: 2em;
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
+#side-nav .nav{
+    list-style-type: none;
+}
+
+#side-nav a{
+    padding: 1em;
+    display: inline-block;
+    background: url('../images/menu_item_normal.png') no-repeat center;
+}
+
+
+#side-nav a:hover{
+    transition: .5s;
+    background: url('../images/menu_item_active.png') no-repeat center;
 }
