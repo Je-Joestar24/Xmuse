@@ -38,7 +38,7 @@ body::-webkit-scrollbar {
     margin: 0px;
 }
 
-
+/* The snow are in the body tag and I used the fixed attachment to make the snow consistent */
 body {
     background-image: url('../images/snow_pattern.png'), url('../images/snow_pattern2.png');
     background-color: var(--bg);
@@ -46,7 +46,7 @@ body {
     background-size: cover;
     height: 100vh;
     overflow: auto;
-    background-position: center top; /* Start from the top */
+    background-position: center top;
 }
 
 
@@ -68,32 +68,63 @@ button {
     background-color: black;
 }
 
-/* reusable */
-
+/* reusable pre designed classes */
+/* The reusable class default styles */
 
 /* wrapper that spand to the whole width */
 .wrapper {
-
     height: 100vh;
     display: flex;
     justify-content: center;
 }
 
+/* all the odd wrapper class displayed flex for separate tree in the bottom*/
 .wrapper:nth-of-type(odd) {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
+
+/* All odd wrapper that has cloud background*/
 .wrapper:nth-of-type(odd):not(:first-of-type) {
     color: var(--white);
-    height: 120vh;
     background: url('../images/section_footer.png') no-repeat top;
 }
 
-/* the main container's widd */
+/* Select all odd .wrapper elements except the first */
+.wrapper:nth-of-type(2n + 1):not(:first-of-type) {
+    height: 120vh;
+    flex-direction: column;
+}
+
+/* moving threes design in every bottom of odd wrapper */
+.wrapper:nth-of-type(odd)>.tree {
+    height: 25.8vh;
+    margin-top: 0px;
+    margin-bottom: -1px;
+    width: 100%;
+    background: url('../images/trees_pattern_01.png') bottom repeat-x;
+    background-size: auto 100%;
+}
+
+/* The logical interval designs for the wrapper */
+
+.wrapper:nth-of-type(even) {
+    background-color: var(--bg-2);
+    color: var(--black);
+}
+
+/* the main container's width */
 .page {
     width: 1200px;
     margin: auto;
+}
+
+.wrapper:nth-of-type(2n + 1):not(:first-of-type) .page {
+    flex: 1;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -107,24 +138,18 @@ button {
     text-align: center;
 }
 
-/* The logical interval designs for the wrapper */
-
-.wrapper:nth-of-type(even) {
-    background-color: var(--bg-2);
-    color: var(--black);
-}
 
 /* all the titles for the next pages styles */
 
 /* title part */
 .no-welcome .title-container h1 {
-    font-family: 'Chunk';
+    font-family: 'Chunk', 'Bebas Neue', 'Arial Black', Arial, sans-serif;
     margin-top: 2em;
     font-size: 2.2em;
     font-weight: 600;
 }
 
-/* green divider */
+/* all even none welcome page can have green divider */
 .no-welcome:nth-of-type(even) .title-container p {
     background: url('../images/divider_green.png') no-repeat center;
     margin: auto;
@@ -132,7 +157,7 @@ button {
     border-radius: 200%;
 }
 
-/* white divider */
+/* all odd none-welcom can hav the small white divider */
 .no-welcome:nth-of-type(odd) .title-container>p {
     background: url('../images/divider_white_s.png') no-repeat center;
     margin: auto;
@@ -143,11 +168,11 @@ button {
 /* Sub title */
 .no-welcome .title-container h4 {
     font-size: .9em;
-    font-family: 'Raleway';
+    font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 100;
 }
 
-/* all default buttons for non welcome page */
+/* all default buttons for non welcome page such as the green buttons */
 
 .no-welcome button {
     width: fit-content;
@@ -165,37 +190,34 @@ button {
 
 /* **********************************page-1********************************** */
 
-#page-1.wrapper{
+#page-1.wrapper {
     align-content: baseline;
     position: relative;
     height: 110vh;
 }
 
 /* reindeer default */
-#page-1.wrapper > img{
+#page-1.wrapper>img {
     position: absolute;
     bottom: 35%;
     width: 5.5em;
-    transition: transform .5s ease-in-out; /* Smooth transition */
+    transition: transform .5s ease-in-out;
+    /* Smooth transition */
 }
 
 
 /* the reindeers that will fly away */
 /* left reindeer */
-#page-1.wrapper > img:first-of-type{
+#page-1.wrapper>img:first-of-type {
     left: 25%;
 }
 
 /* right reindeer */
-#page-1.wrapper > img:last-of-type{
+#page-1.wrapper>img:last-of-type {
     right: 25%;
 }
 
-#page-1 .page{
-    margin-top: 0px;
-}
-
-/* title container */
+/* title container where it contains all the title part including learn more button*/
 #page-1 .title-container {
     padding-top: 1em;
     position: relative;
@@ -210,8 +232,6 @@ button {
 }
 
 /* title glow efix */
-
-
 #page-1 .page::before {
     content: "";
     position: absolute;
@@ -225,19 +245,19 @@ button {
     border-radius: inherit;
 }
 
-/* Merry Christmas & sale */
+/* Merry Christmas & sale texts */
 
-#page-1  h1 {
+#page-1 h1 {
     margin: 0px auto;
     font-weight: 100;
 }
 
-#page-1  h1:first-child {
-    font-family: "Pacifico", sans-serif;
+#page-1 h1:first-of-type {
+    font-family: 'Pacifico', 'Lobster', Arial, sans-serif;
     line-height: 1em;
 }
 
-#page-1  h1:last-of-type {
+#page-1 h1:last-of-type {
     font-family: "Chunk", sans-serif;
     font-size: 3.1em;
     line-height: .5em;
@@ -245,7 +265,7 @@ button {
 }
 
 /* divider white */
-#page-1  p {
+#page-1 p {
     color: transparent;
     outline: transparent;
     border: transparent;
@@ -261,7 +281,7 @@ button {
 
 #page-1 h2 {
     margin: 0px auto;
-    font-family: "Raleway";
+    font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
     font-size: .95em;
     font-weight: 100;
 }
@@ -288,7 +308,7 @@ button {
 
 /* icon */
 
-#page-1 img{
+#page-1 img {
     width: 1.8em;
     padding-top: .7em;
     margin: auto;
@@ -303,9 +323,10 @@ button {
 /* Title of page 2 */
 #page-2 .title-container {
     padding: 1em;
-    
+
 }
 
+/* Our hot offer text */
 #page-2 .title-container h1 {
     margin-bottom: .1em;
 }
@@ -316,7 +337,7 @@ button {
     margin: auto;
 }
 
-/* product container */
+/* productas container */
 
 #page-2 .product-container {
     margin-top: 1.5em;
@@ -326,28 +347,30 @@ button {
 }
 
 
-/* the products */
+/* the product card */
 #page-2 .card {
     display: grid;
     grid-template-rows: 1fr .1fr .1fr;
     gap: .5em;
 }
 
-/* product head part */
-#page-2 .card .head {
+/* product head part which contains the image*/
+#page-2 .head {
     background: url('../images/product_background_01.png') no-repeat center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#page-2 .card .head:hover {
+/* the green background hover effixx */
+#page-2 .head:hover {
     background: none;
     transition: 0.3s;
     background: url('../images/product_background_02.png') no-repeat center;
 }
 
-#page-2 .card .head img {
+/* the product image */
+#page-2 img {
     margin: auto;
     height: 85%;
     margin: 0px;
@@ -356,42 +379,21 @@ button {
 }
 
 /* product descriptions */
-#page-2 .card .desc {
-    font-family: 'Raleway';
+#page-2 .desc {
+    font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
     font-size: .9em;
 }
 
+/* product price */
 #page-2 .desc h4 {
-    font-family: 'Chunk';
+    font-family: 'Chunk', 'Bebas Neue', 'Arial Black', Arial, sans-serif;
     font-size: 1.8em;
 }
 
-/* Buy button */
+/* Buy button's design is already at the default*/
 
 
 /* ************************************Page 3************************************ */
-
-/* Select all odd .wrapper elements except the first */
-.wrapper:nth-of-type(2n + 1):not(:first-of-type) {
-    height: 120vh;
-    flex-direction: column;
-}
-
-/* moving threes design */
-.wrapper:nth-of-type(odd) > .tree {
-    height: 25.8vh;
-    margin-top: 0px;
-    margin-bottom: -1px;
-    width: 100%;
-    background: url('../images/trees_pattern_01.png') bottom;
-}
-
-.wrapper:nth-of-type(2n + 1):not(:first-of-type) .page {
-    flex: 1;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
 
 
 /* title container for page 3 */
@@ -401,33 +403,35 @@ button {
     margin-bottom: 2.4em;
 }
 
-
+/* The title Promo Video */
 #page-3 .title-container h1 {
     margin-top: .5em;
     font-size: 2.4em;
     font-weight: 500;
 }
 
+/* the white divider custom to match the design*/
 #page-3 .title-container p {
     margin-top: .5em;
     width: 100%;
 }
 
+/* The short sub title */
 #page-3 .title-container h4 {
     font-weight: 100;
 }
 
-/* I frame */
+/* I frame  contains christmas video from yt*/
 
-#page-3 .page iframe {
-    width: 85%;
+#page-3 iframe {
+    width: 78%;
     height: 58.5%;
     margin: 0px auto;
 }
 
 /* *****************************Page 4 - 6 or the product page***************************** */
-
-.product-page .title-container{
+/* Dynamic product title containers designs */
+.product-page .title-container {
     margin-top: auto;
 }
 
@@ -444,11 +448,13 @@ button {
 .wrapper.product-page:nth-of-type(even) {
     height: 90vh;
 }
+
 /* for all red backgrounded products */
 .wrapper.product-page:nth-of-type(odd) {
     height: 125vh;
 }
 
+/* all even product page heights */
 .wrapper.product-page:nth-of-type(even) .page {
     height: 100%;
 }
@@ -462,8 +468,7 @@ button {
     position: relative;
 }
 
-
-/* The footer part of the product page */
+/* The footer part of the product page contains description, price and buy now button */
 .product-page footer {
     margin: auto;
     display: flex;
@@ -476,40 +481,42 @@ button {
     margin-bottom: 0px;
 }
 
-/* article that seve as product info */
+/* article that serve as product info */
 .product-page footer article {
-    font-family: 'Raleway';
+    font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
     flex: 1;
 }
 
-/* this serve as price and buy now button */
+/* contiiner for price and buy now button */
 .product-page footer div {
     margin-left: auto;
     flex: .3;
     text-align: center;
 }
 
+/* The price */
 .product-page footer h3 {
-    font-family: 'Raleway';
+    font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 1.8em;
     margin: .2em;
 }
 
-/* footer botton for buying flex */
+/* Buy now button*/
 .product-page footer button {
     flex: .3;
 }
 
-/* slick slider */
+/* slick slider for product's images*/
 
 /* modified arrows */
-.product-page button.slick-arrow:first-of-type{
+.product-page button.slick-arrow:first-of-type {
     justify-content: end;
     margin-left: 2em;
     z-index: 1;
 }
 
-.product-page .product-container button{
+/* Reset default button for .product-page .product-container */
+.product-page .product-container button {
     background: none;
     display: block;
     padding: 0px;
@@ -518,36 +525,23 @@ button {
 }
 
 
-/* modifying the slick dots */
-.product-page .slick-dots{
+/* modified the slick dots or image nav*/
+/* Added margin to push the navs to the image */
+.product-page .slick-dots {
     margin-bottom: 2em;
 }
 
-.product-page .slick-dots button{
+/* border for visibility */
+.product-page .slick-dots button {
     border: var(--white) 1px solid;
     border-radius: 100%;
-    color: var(--white);
 }
 
-.product-page .slick-dots .slick-active{
+/* Modified Active */
+.product-page .slick-dots .slick-active {
     border: var(--white) 1px solid;
     border-radius: 100%;
     background-color: var(--white);
-}
-
-/* For :default vertical positions and at the right  */
-.product-page .product-container>svg {
-    position: absolute;
-    right: 0px;
-    top: 50%;
-    height: 2em;
-    width: 2em;
-    z-index: 1;
-}
-
-/* left arrow */
-.product-page .product-container>svg:first-of-type {
-    left: 0;
 }
 
 
@@ -562,41 +556,45 @@ button {
     width: 4em;
 }
 
-/* nav item styles */
-.product-page form svg {
-    height: auto;
-    border-radius: 100%;
-    border: var(--white) solid 1px;
-}
-
-.product-page .product-container svg:active {
-    opacity: 1;
-}
-
-.product-page form svg:active {
-    background-color: white;
-}
-
-
 /* *****************REGISTER PART***************** */
 
 /* modified height for the wrapper of registter */
-
-#register.wrapper{
-    
+#register {
     height: 95vh;
 }
 
-#register .title-container{
-    
+#register {
+    position: relative;
+}
+
+
+#register::before {
+    content: "";
+    /* Required for pseudo-elements to display */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/red_blink2.png') center/cover no-repeat;
+    opacity: 0.9;
+    border-radius: inherit;
+    z-index: -1;
+    /* This will match the border-radius of the .page element */
+    /* Remove z-index or set it to a positive value if needed */
+}
+
+/* Title container margin top  */
+#register .title-container {
     margin-top: auto;
 }
 
+/* The want more? subscribe text inside title container */
 #register .title-container h1 {
     font-size: 2.4em;
 }
 
-
+/* The and get the latest amazing offers first sub title */
 #register .title-container h4 {
     font-size: 1em;
 }
@@ -617,7 +615,7 @@ button {
     border: none;
     padding: 0 1.5em;
     font-size: 1em;
-    font-family: 'Raleway';
+    font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
     color: var(--black);
 }
 
@@ -636,16 +634,25 @@ button {
 }
 
 /* **********************summary********************** */
-#summary .page{
+
+#summary .page {
     margin-bottom: 0px;
 }
+
 
 #summary.wrapper {
     position: relative;
     height: 65vh;
 }
 
+/* Setting all the image to be pointable */
+#summary img {
+    cursor: pointer;
+}
 
+/* Title container designs */
+
+/* for the Get intouch with us margin */
 #summary .title-container h4 {
     margin-top: 1.5em;
 }
@@ -655,6 +662,7 @@ button {
 }
 
 /* contacts 1 which are the bigger icons with detailed contact */
+
 #summary .contacts-1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -662,7 +670,7 @@ button {
 
 #summary .card {
     text-align: center;
-    font-family: 'Raleway';
+    font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
     display: grid;
     gap: 2em;
 }
@@ -692,88 +700,284 @@ button {
     border-radius: 100%;
 }
 
+/* this is the copyright part */
 
-#summary .page > footer {
+#summary .page>footer {
     margin-top: 2em;
     text-align: center;
 }
 
 
-/* hover effects one by one */
-
+/* hover effects one by one simply change the color to white and set the backgound color to its approapriate color */
 
 #summary .contacts-2 img:hover {
     border: var(--white) solid .15em;
-    background-color: var(--fb);/* fb as primary */
+    background-color: var(--fb);
+    /* fb as primary */
 }
+
 #summary .contacts-2 img:hover {
     border: var(--white) solid .15em;
 }
 
 #summary .contacts-2 img:nth-child(2):hover {
-    background-color: var(--twit); /* Twitter */
+    background-color: var(--twit);
+    /* Twitter */
 }
 
 #summary .contacts-2 img:nth-child(3):hover {
-    background-color: var(--gplus); /* Google Plus */
+    background-color: var(--gplus);
+    /* Google Plus */
 }
 
 #summary .contacts-2 img:nth-child(4):hover {
-    background-color: var(--insta); /* Instagram */
+    background-color: var(--insta);
+    /* Instagram */
 }
 
 #summary .contacts-2 img:nth-child(5):hover {
-    background-color: var(--pin); /* Pinterest */
+    background-color: var(--pin);
+    /* Pinterest */
 }
 
 #summary .contacts-2 img:nth-child(6):hover {
-    background-color: var(--tumb); /* Tumblr */
+    background-color: var(--tumb);
+    /* Tumblr */
 }
 
 #summary .contacts-2 img:nth-child(7):hover {
-    background-color: var(--vim); /* Vimeo */
+    background-color: var(--vim);
+    /* Vimeo */
 }
 
 /* navigation */
 
-#side-nav{
+/* side nav container */
+#side-nav {
     position: fixed;
     right: 2em;
     bottom: 50%;
     transform: translateY(50%);
 }
 
-#side-nav .nav{
+/* removing th defautl style */
+#side-nav .nav {
     list-style-type: none;
 }
 
-#side-nav a{
+/* setting up the a element */
+#side-nav a {
     padding: 1em;
     display: inline-block;
     background: url('../images/menu_item_normal.png') no-repeat center;
 }
 
-
-#side-nav a:hover{
+/* changing the background image on hover */
+#side-nav a:hover {
     transition: .5s;
     background: url('../images/menu_item_active.png') no-repeat center;
 }
 
-#side-nav li{
+/* using flex */
+#side-nav li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 2em;
 }
 
-#side-nav li span{
+/* This is the style of the span, this span serves a label for the navigation */
+#side-nav li span {
     transition: .1s;
     color: var(--white);
-    font-family: 'Raleway';
+    font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
     font-size: .75em;
     flex: 1;
-    padding: .3em 1em ;
+    padding: .3em 1em;
     background-color: var(--green);
     border-radius: 1em;
     text-align: center;
 }
+
+/* reindeer */
+#page-1.wrapper>img {
+    transition: transform 0.5s ease-in-out;
+    /* Smooth transition */
+}
+
+.move-left {
+    transform: translate(-400px, -400px);
+}
+
+.move-right {
+    transform: translate(400px, -400px);
+}
+
+/* *****************************************RESPONSIVE***************************************** */
+/* Tablet responsive */
+
+
+/* tablet */
+/* tablet */
+@media screen and (max-width: 1440px) {
+    body {
+        font-size: 15px;
+    }
+
+
+    /* reusable pre designed classes */
+    /* The reusable class default styles */
+    /* Ensure full-width of the page container and reset margins */
+    #app .wrapper,
+    #app .page,
+    #page-1 .page,
+    #page-2.wrapper .page {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* page-3 */
+
+    #page-3.wrapper {
+        height: 145vh;
+    }
+
+    #page-3.wrapper iframe {
+        height: 66%;
+    }
+
+    /* producs */
+    #app .product-page.wrapper {
+        height: 120vh;
+    }
+
+    #app .product-page.wrapper:nth-of-type(odd) {
+        height: 155vh;
+    }
+
+    /* subscribe */
+    #register.wrapper {
+        height: 100vh
+    }
+
+    #register #reg-form {
+        width: 25%;
+    }
+
+
+     #reg-form input{
+        font-size: 1em;
+        padding: 1em 1.4em;
+    }
+    /* Summary */
+
+    #summary.wrapper {
+        height: 68vh;
+    }
+
+    #summary.wrapper .page {
+        margin-top: 0px;
+    }
+
+    /* reinder */
+
+    .move-left {
+        transform: translate(-200px, -200px);
+    }
+
+    .move-right {
+        transform: translate(200px, -200px);
+    }
+
+}
+
+
+/* tABLET */
+@media screen and (max-width: 991px) {
+    
+    body {
+        font-size: 10px;
+    }
+
+
+    /* reusable pre designed classes */
+    /* The reusable class default styles */
+    /* Ensure full-width of the page container and reset margins */
+    #app .wrapper,
+    #app .page,
+    #page-1 .page,
+    #page-2.wrapper .page {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* page-3 */
+
+    #page-3.wrapper {
+        height: 145vh;
+    }
+
+    #page-3.wrapper iframe {
+        height: 66%;
+    }
+
+    /* producs */
+    #app .product-page.wrapper {
+        height: 105vh;
+    }
+
+    /* subscribe */
+    #register.wrapper {
+        height: 120vh
+    }
+
+    #register #reg-form {
+        margin-top: 1em;
+        width: 40%;
+    }
+
+     #reg-form input{
+        font-size: 1.2em;
+        padding: 1em 1.4em;
+    }
+    /* Summary */
+
+    #summary.wrapper {
+        height: 80vh;
+    }
+
+
+    /* reinder */
+
+    .move-left {
+        transform: translate(-150px, -150px);
+    }
+
+    .move-right {
+        transform: translate(150px, -150px);
+    }
+}
+/* PHONE */
+@media screen and (max-width: 595px) {
+    #page-2 .product-container{
+        grid-template-columns: 1fr;
+    }
+
+    /* reinder */
+
+    .move-left {
+        transform: translate(-90px, -90px);
+    }
+
+    .move-right {
+        transform: translate(90px, -90px);
+    }
+    #summary .contacts-2{
+        flex-wrap: wrap;
+        gap: 1em;
+        width: 80%;
+        margin: auto;
+    }
+}
+
+/* Phone Responsive */
