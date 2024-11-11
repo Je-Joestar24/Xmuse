@@ -73,6 +73,7 @@ button {
 
 /* wrapper that spand to the whole width */
 .wrapper {
+
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -81,7 +82,8 @@ button {
 
 /* the main container's widd */
 .page {
-    width: 60%;
+    width: 1200px;
+    margin: auto;
 }
 
 
@@ -158,6 +160,35 @@ button {
 
 /* **********************************page-1********************************** */
 
+#page-1.wrapper{
+    align-content: baseline;
+    position: relative;
+}
+
+/* reindeer default */
+#page-1.wrapper > img{
+    position: absolute;
+    bottom: 35%;
+    width: 5.5em;
+    transition: transform 1.5s ease-in-out; /* Smooth transition */
+}
+
+
+/* the reindeers that will fly away */
+/* left reindeer */
+#page-1.wrapper > img:first-of-type{
+    left: 35%;
+}
+
+/* right reindeer */
+#page-1.wrapper > img:last-of-type{
+    right: 35%;
+}
+
+#page-1 .page{
+    margin-top: 0px;
+}
+
 /* title container */
 #page-1 .title-container {
     padding-top: 1em;
@@ -169,11 +200,12 @@ button {
     margin: auto;
     font-size: 3.5em;
     color: var(--white);
-    margin-top: 2%;
     overflow: visible;
 }
 
 /* title glow efix */
+
+
 #page-1 .page::before {
     content: "";
     position: absolute;
@@ -357,12 +389,13 @@ button {
 
 /* title container for page 3 */
 #page-3 .title-container {
-    margin: 5em auto;
-    margin-bottom: 2.4em;
+    margin: 2.4em auto;
+    margin-top: 0px;
 }
 
 
 #page-3 .title-container h1 {
+    margin-top: .5em;
     font-size: 2.4em;
     font-weight: 500;
 }
@@ -379,8 +412,8 @@ button {
 /* I frame */
 
 #page-3 .page iframe {
-    width: 40vw;
-    height: 45vh;
+    width: 85%;
+    height: 58.5%;
     margin: auto;
     margin-top: .5em;
 }
@@ -399,50 +432,33 @@ button {
 
 /* for all white backgrounded products */
 .wrapper.product-page:nth-of-type(even) {
-    height: 85vh;
+    height: 100vh;
+}
+
+.wrapper.product-page:nth-of-type(even) .page {
+    height: 100%;
 }
 
 /* The product container */
 .product-page .product-container {
     margin: 1em auto;
-    height: 50vh;
-    width: 50vw;
+    height: fit-content;
+    width: 85%;
     position: relative;
 }
 
-
-/* image scrollable side */
-.product-page .product-container .tempo img {
-    object-fit: contain;
-    height: 50vh;
-    width: 50vw;
-}
-
-/* temporary technique for scrolling*/
-.product-page .product-container .tempo {
-    overflow: auto;
-    display: flex;
-    height: 50vh;
-    width: 50vw;
-}
-
-.product-page .product-container .tempo::-webkit-scrollbar {
-    display: none;
-}
 
 /* The footer part of the product page */
 .product-page footer {
     margin: auto;
     display: flex;
-    width: 48vw;
+    width: 80%;
 }
 
 /* every red background so that the discription won't be so high */
 .product-page:nth-of-type(odd) footer {
-    margin: auto;
     margin-top: .5em;
-    display: flex;
-    width: 48vw;
+    margin-bottom: auto;
 }
 
 /* article that seve as product info */
@@ -469,12 +485,39 @@ button {
     flex: .3;
 }
 
+/* slick slider */
 
-/* for arrow navigation and bottom navigations */
-.product-page .product-container svg {
+/* modified arrows */
+.product-page button.slick-arrow:first-of-type{
+    justify-content: end;
+    margin-left: 2em;
+    z-index: 1;
+}
+
+.product-page .product-container button{
+    background: none;
+    display: block;
+    padding: 0px;
+    box-shadow: none;
+    border: none;
+}
+
+
+/* modifying the slick dots */
+.product-page .slick-dots{
+    margin-bottom: 2em;
+}
+
+.product-page .slick-dots button{
+    border: var(--white) 1px solid;
+    border-radius: 100%;
     color: var(--white);
-    opacity: .7;
-    cursor: pointer;
+}
+
+.product-page .slick-dots .slick-active{
+    border: var(--white) 1px solid;
+    border-radius: 100%;
+    background-color: var(--white);
 }
 
 /* For :default vertical positions and at the right  */
@@ -573,7 +616,11 @@ button {
     padding-right: 3.2em;
 }
 
-/* summary */
+/* **********************summary********************** */
+#summary .page{
+    margin-bottom: 0px;
+}
+
 #summary.wrapper {
     position: relative;
     height: 65vh;
@@ -627,9 +674,8 @@ button {
 }
 
 
-#summary>footer {
-    position: absolute;
-    bottom: 1.2em;
+#summary .page > footer {
+    margin-top: 2em;
     text-align: center;
 }
 
@@ -692,4 +738,23 @@ button {
 #side-nav a:hover{
     transition: .5s;
     background: url('../images/menu_item_active.png') no-repeat center;
+}
+
+#side-nav li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+}
+
+#side-nav li span{
+    transition: .1s;
+    color: var(--white);
+    font-family: 'Raleway';
+    font-size: .75em;
+    flex: 1;
+    padding: .3em 1em ;
+    background-color: var(--green);
+    border-radius: 1em;
+    text-align: center;
 }

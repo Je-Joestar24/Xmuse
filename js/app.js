@@ -54,8 +54,22 @@ const products = [
 const pages = "page-1 page-2 page-3 page-4 page-5 page-6 register summary".split(" ");
 /* navigation links */
 const navLinks = document.querySelectorAll("#side-nav .nav a");
+const navDisplay = document.querySelectorAll('#side-nav .nav span');
 
 const app = document.getElementById('app');
+
+function loadSlickSlider(){
+    $('.single-item').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,   
+        dots: true,            
+        arrows: true,         
+        infinite: true,        
+        speed: 500,            
+        slidesToShow: 1,       
+        slidesToScroll: 1     
+    });
+}
 
 /* Dynamic loading for product, plus reduced image logic, used map filtering here and convert it to string using join */
 function loadProduct() {
@@ -70,32 +84,11 @@ function loadProduct() {
                     <h4>${product.sub}</h4>
                 </header>
                 <div class="product-container">
-                    <div class="tempo">
+                    <div class="single-item">
                         <img src="images/product_0${product.images}_preview_01.jpg" alt="" />
                         <img src="images/product_0${product.images}_preview_02.jpg" alt="" />
                         <img src="images/product_0${product.images}_preview_03.jpg" alt="" />
                     </div>
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="4"
-                            d="M15 19l-7-7 7-7"
-                        />
-                    </svg>
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="4"
-                            d="M9 5l7 7-7 7"
-                        />
-                    </svg>
-                    <form action="#">
-                        <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="12" r="9" /></svg>
-                        <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="12" r="9" /></svg>
-                        <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="12" r="9" /></svg>
-                    </form>
                 </div>
                 <footer>
                     <article>
@@ -123,33 +116,68 @@ function loadProduct() {
     if (app && page3Element) page3Element.insertAdjacentHTML('afterend', result);
 }
 
-function assignNav() {
 
+/* Dynamic Assigning for pages */
+function assignNav() {
     navLinks.forEach((link, index) => {
         link.href = `#${pages[index]}`;
-
+        /* for navitation */
         link.addEventListener("click", (event) => {
             event.preventDefault();
-
-            // Find the target section by ID and scroll to it, centered vertically
             const targetSection = document.getElementById(pages[index]);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                    inline: "nearest"
-                });
-            }
+            targetSection.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "nearest"
+            });
+        });
+
+        /* for hover and out */
+
+        const targetSection = navDisplay[index];
+        targetSection.setAttribute('style', 'visibility: hidden;')
+        link.addEventListener('mouseover', (event) => {
+            event.preventDefault();
+            targetSection.removeAttribute('style');
+        });
+
+        link.addEventListener('mouseout', (event) => {
+            event.preventDefault();
+            targetSection.setAttribute('style', 'visibility: hidden;')
         });
     });
+}
+
+/* scroll event handling */
+function handleScroll(){
+    document.addEventListener("scroll", function() {
+        const scrollPosition = window.scrollY;
+       flyReinder(scrollPosition);
+    });
+}
+
+function flyReinder(scrollPosition){
+    const leftReindeer = document.querySelector("#page-1.wrapper > img:first-of-type");
+    const rightReindeer = document.querySelector("#page-1.wrapper > img:last-of-type");
+
+    // Start moving reindeers away when scrolling down
+    if (scrollPosition > 100) {  // Adjust this scroll threshold as needed
+        leftReindeer.style.transform = "translate(-400px, -400px)"; // Matches `flyLeft` keyframe
+        rightReindeer.style.transform = "translate(400px, -400px)"; // Matches `flyRight` keyframe
+    } else { 
+        // Reset reindeers to original positions when scrolling back up
+        leftReindeer.style.transform = "translateX(0)";
+        rightReindeer.style.transform = "translateX(0)";
+    }
 }
 
 /* waiting for the whole page to load first */
 window.onload = () => {
 
     /* all product loaded */
-
+    handleScroll();
     loadProduct();
+    loadSlickSlider();
     assignNav();
     /* stored pages */
 
