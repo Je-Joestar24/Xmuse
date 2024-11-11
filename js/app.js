@@ -58,16 +58,16 @@ const navDisplay = document.querySelectorAll('#side-nav .nav span');
 
 const app = document.getElementById('app');
 
-function loadSlickSlider(){
+function loadSlickSlider() {
     $('.single-item').slick({
         autoplay: true,
-        autoplaySpeed: 2000,   
-        dots: true,            
-        arrows: true,         
-        infinite: true,        
-        speed: 500,            
-        slidesToShow: 1,       
-        slidesToScroll: 1     
+        autoplaySpeed: 2000,
+        dots: true,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
     });
 }
 
@@ -76,7 +76,6 @@ function loadProduct() {
     let result = products.map(product => {
         return `
         <div id="${product.id}" class="wrapper no-welcome product-page">
-            <header></header>
             <div class="page">
                 <header class="title-container">
                     <h1>${product.title}</h1>
@@ -107,6 +106,7 @@ function loadProduct() {
                     </div>
                 </footer>
             </div>
+                <div class="tree"></div>
         </div>`
     }).join("");
 
@@ -149,14 +149,18 @@ function assignNav() {
 }
 
 /* scroll event handling */
-function handleScroll(){
-    document.addEventListener("scroll", function() {
+function handleScroll() {
+    document.addEventListener("scroll", function () {
         const scrollPosition = window.scrollY;
-       flyReinder(scrollPosition);
+        /* for snow I used the body since the wrapper has its own background*/
+        document.body.style.backgroundPosition = `center ${scrollPosition * 0.5}px, center ${scrollPosition * 0.8}px`;
+        flyReinder(scrollPosition);
+        moveTrees(scrollPosition);
     });
 }
 
-function flyReinder(scrollPosition){
+/* flying reindeer trigger when scroll */
+function flyReinder(scrollPosition) {
     const leftReindeer = document.querySelector("#page-1.wrapper > img:first-of-type");
     const rightReindeer = document.querySelector("#page-1.wrapper > img:last-of-type");
 
@@ -164,22 +168,30 @@ function flyReinder(scrollPosition){
     if (scrollPosition > 100) {  // Adjust this scroll threshold as needed
         leftReindeer.style.transform = "translate(-400px, -400px)"; // Matches `flyLeft` keyframe
         rightReindeer.style.transform = "translate(400px, -400px)"; // Matches `flyRight` keyframe
-    } else { 
+    } else {
         // Reset reindeers to original positions when scrolling back up
         leftReindeer.style.transform = "translateX(0)";
         rightReindeer.style.transform = "translateX(0)";
     }
 }
 
+/* moving trees when scroll */
+function moveTrees(scrollPosition) {
+    const treeWrapper = document.querySelectorAll(".wrapper:nth-of-type(odd) > .tree");
+
+    treeWrapper.forEach((wrapper, index) => {
+        const offset = /* (index % 2 === 0 ? 1 : -1) * */ scrollPosition * 0.5;
+
+        wrapper.style.backgroundPosition = `${offset}px bottom`;
+    });
+}
 /* waiting for the whole page to load first */
 window.onload = () => {
-
     /* all product loaded */
     handleScroll();
     loadProduct();
     loadSlickSlider();
     assignNav();
     /* stored pages */
-
 }
 

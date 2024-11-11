@@ -38,19 +38,19 @@ body::-webkit-scrollbar {
     margin: 0px;
 }
 
+
 body {
     background-image: url('../images/snow_pattern.png'), url('../images/snow_pattern2.png');
     background-color: var(--bg);
     background-attachment: fixed;
-    /* This makes the background images stay fixed */
     background-size: cover;
-    /* Optional: Adjusts the background size to cover the viewport */
     height: 100vh;
     overflow: auto;
+    background-position: center top; /* Start from the top */
 }
 
-button {
 
+button {
     cursor: pointer;
 }
 
@@ -79,6 +79,16 @@ button {
     justify-content: center;
 }
 
+.wrapper:nth-of-type(odd) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.wrapper:nth-of-type(odd):not(:first-of-type) {
+    color: var(--white);
+    height: 120vh;
+    background: url('../images/section_footer.png') no-repeat top;
+}
 
 /* the main container's widd */
 .page {
@@ -98,11 +108,6 @@ button {
 }
 
 /* The logical interval designs for the wrapper */
-
-.wrapper:nth-of-type(odd) {
-    background: url('../images/trees_pattern_01.png') no-repeat bottom;
-    color: var(--white);
-}
 
 .wrapper:nth-of-type(even) {
     background-color: var(--bg-2);
@@ -163,6 +168,7 @@ button {
 #page-1.wrapper{
     align-content: baseline;
     position: relative;
+    height: 110vh;
 }
 
 /* reindeer default */
@@ -170,19 +176,19 @@ button {
     position: absolute;
     bottom: 35%;
     width: 5.5em;
-    transition: transform 1.5s ease-in-out; /* Smooth transition */
+    transition: transform .5s ease-in-out; /* Smooth transition */
 }
 
 
 /* the reindeers that will fly away */
 /* left reindeer */
 #page-1.wrapper > img:first-of-type{
-    left: 35%;
+    left: 25%;
 }
 
 /* right reindeer */
 #page-1.wrapper > img:last-of-type{
-    right: 35%;
+    right: 25%;
 }
 
 #page-1 .page{
@@ -297,6 +303,7 @@ button {
 /* Title of page 2 */
 #page-2 .title-container {
     padding: 1em;
+    
 }
 
 #page-2 .title-container h1 {
@@ -370,13 +377,13 @@ button {
     flex-direction: column;
 }
 
-/* Upper clouds: Target odd headers except the first */
-.wrapper:nth-of-type(2n + 1):not(:first-of-type)>header {
-    height: 18vh;
+/* moving threes design */
+.wrapper:nth-of-type(odd) > .tree {
+    height: 25.8vh;
     margin-top: 0px;
+    margin-bottom: -1px;
     width: 100%;
-    background: url('../images/section_footer.png') no-repeat center top;
-    background-size: cover;
+    background: url('../images/trees_pattern_01.png') bottom;
 }
 
 .wrapper:nth-of-type(2n + 1):not(:first-of-type) .page {
@@ -388,9 +395,10 @@ button {
 
 
 /* title container for page 3 */
+
 #page-3 .title-container {
-    margin: 2.4em auto;
-    margin-top: 0px;
+    margin: auto;
+    margin-bottom: 2.4em;
 }
 
 
@@ -414,12 +422,14 @@ button {
 #page-3 .page iframe {
     width: 85%;
     height: 58.5%;
-    margin: auto;
-    margin-top: .5em;
+    margin: 0px auto;
 }
 
 /* *****************************Page 4 - 6 or the product page***************************** */
 
+.product-page .title-container{
+    margin-top: auto;
+}
 
 /* the header part of the product containers */
 .product-page header {
@@ -432,7 +442,11 @@ button {
 
 /* for all white backgrounded products */
 .wrapper.product-page:nth-of-type(even) {
-    height: 100vh;
+    height: 90vh;
+}
+/* for all red backgrounded products */
+.wrapper.product-page:nth-of-type(odd) {
+    height: 125vh;
 }
 
 .wrapper.product-page:nth-of-type(even) .page {
@@ -442,6 +456,7 @@ button {
 /* The product container */
 .product-page .product-container {
     margin: 1em auto;
+    margin-bottom: .5em;
     height: fit-content;
     width: 85%;
     position: relative;
@@ -458,7 +473,7 @@ button {
 /* every red background so that the discription won't be so high */
 .product-page:nth-of-type(odd) footer {
     margin-top: .5em;
-    margin-bottom: auto;
+    margin-bottom: 0px;
 }
 
 /* article that seve as product info */
@@ -566,12 +581,16 @@ button {
 /* *****************REGISTER PART***************** */
 
 /* modified height for the wrapper of registter */
-#register.wrapper {
-    height: 100vh;
-    background: url('../images/trees_pattern_01.png') no-repeat bottom, url('../images/red_blink2.png') no-repeat center bottom;
+
+#register.wrapper{
+    
+    height: 95vh;
 }
 
-
+#register .title-container{
+    
+    margin-top: auto;
+}
 
 #register .title-container h1 {
     font-size: 2.4em;
