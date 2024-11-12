@@ -42,7 +42,42 @@
               happy!
             </h4>
           </div>
-          <div class="product-container">
+          <!-- for Laptop and tablet -->
+          <div class="product-container item">
+            <div class="card">
+              <div class="head">
+                <img src="/images/product_01_thumb.png" alt="phone" />
+              </div>
+              <div class="desc">
+                <p>SMARPHON 5C 16GB</p>
+                <h4>$59.50</h4>
+              </div>
+              <button>BUY NOW</button>
+            </div>
+            <div class="card">
+              <div class="head">
+                <img src="/images/product_02_thumb.png" alt="laptop" />
+              </div>
+              <div class="desc">
+                <p>MAKBOOK PRO 13`</p>
+                <h4>$99.50</h4>
+              </div>
+              <button>BUY NOW</button>
+            </div>
+            <div class="card">
+              <div class="head">
+                <img src="/images/product_03_thumb.png" alt="monitor" />
+              </div>
+              <div class="desc">
+                <p>IMAK 27`</p>
+                <h4>$129.50</h4>
+              </div>
+              <button>BUY NOW</button>
+            </div>
+          </div>
+
+          <!-- For Phone products withs slider -->
+          <div class="product-container single-item">
             <div class="card">
               <div class="head">
                 <img src="/images/product_01_thumb.png" alt="phone" />
@@ -109,8 +144,8 @@
           </div>
           <!-- register form -->
           <form action="#" id="reg-form">
-            <input placeholder="ENTER NAME" type="text" />
-            <input placeholder="ENTER EMAIL" type="text" />
+            <input id="user_name" name="user_name" placeholder="ENTER NAME" type="text" required/>
+            <input id="email" name="email" placeholder="ENTER EMAIL" type="email" required />
             <button type="submit">SUBMIT</button>
           </form>
         </div>
@@ -209,6 +244,8 @@
         </div>
       </div>
     </div>
+
+    <!-- The navigation for scrolling -->
     <nav id="side-nav">
       <ul class="nav">
         <li><span>HOME</span><a href="#"></a></li>

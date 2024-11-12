@@ -346,6 +346,10 @@ button {
     text-align: center;
 }
 
+/* hidding for phone purposes */
+#page-2 .product-container.single-item {
+    display: none;
+}
 
 /* the product card */
 #page-2 .card {
@@ -634,6 +638,10 @@ button {
 }
 
 /* **********************summary********************** */
+#summary.wrapper{
+    height: fit-content;
+    padding-bottom: 1em;
+}
 
 #summary .page {
     margin-bottom: 0px;
@@ -667,7 +675,7 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-
+/* These crads contains the icons and details */
 #summary .card {
     text-align: center;
     font-family: 'Raleway', 'Roboto', Arial, Helvetica, sans-serif;
@@ -799,6 +807,15 @@ button {
     text-align: center;
 }
 
+#side-nav {
+    pointer-events: none;
+    /* Disable pointer events on <li> */
+}
+
+#side-nav .nav a {
+    pointer-events: auto;
+}
+
 /* reindeer */
 #page-1.wrapper>img {
     transition: transform 0.5s ease-in-out;
@@ -806,18 +823,17 @@ button {
 }
 
 .move-left {
-    transform: translate(-400px, -400px);
+    transform: translate(-350px, -350px);
 }
 
 .move-right {
-    transform: translate(400px, -400px);
+    transform: translate(0px, -350px);
 }
 
 /* *****************************************RESPONSIVE***************************************** */
 /* Tablet responsive */
 
 
-/* tablet */
 /* tablet */
 @media screen and (max-width: 1440px) {
     body {
@@ -865,15 +881,12 @@ button {
     }
 
 
-     #reg-form input{
+    #reg-form input {
         font-size: 1em;
         padding: 1em 1.4em;
     }
-    /* Summary */
 
-    #summary.wrapper {
-        height: 68vh;
-    }
+    /* Summary */
 
     #summary.wrapper .page {
         margin-top: 0px;
@@ -894,7 +907,7 @@ button {
 
 /* tABLET */
 @media screen and (max-width: 991px) {
-    
+
     body {
         font-size: 10px;
     }
@@ -936,15 +949,12 @@ button {
         width: 40%;
     }
 
-     #reg-form input{
+    #reg-form input {
         font-size: 1.2em;
         padding: 1em 1.4em;
     }
-    /* Summary */
 
-    #summary.wrapper {
-        height: 80vh;
-    }
+    /* Summary */
 
 
     /* reinder */
@@ -957,27 +967,267 @@ button {
         transform: translate(150px, -150px);
     }
 }
+
 /* PHONE */
 @media screen and (max-width: 595px) {
-    #page-2 .product-container{
-        grid-template-columns: 1fr;
+    body {
+        font-size: 20px;
     }
 
-    /* reinder */
+    #app .wrapper {
+        background-size: auto 10%;
+    }
+
+    #page-1.wrapper {
+        height: fit-content;
+        font-size: .5em;
+    }
+
+    /* reindeer default */
+    #page-1.wrapper>img {
+        position: absolute;
+        bottom: 35%;
+        width: 5.5em;
+        transition: transform .5s ease-in-out;
+        /* Smooth transition */
+    }
+
+    /* the reindeers that will fly away */
+    /* left reindeer */
+    #page-1.wrapper>img:first-of-type {
+        left: 15%;
+    }
+
+    /* right reindeer */
+    #page-1.wrapper>img:last-of-type {
+        right: 15%;
+    }
+
+    /* title container where it contains all the title part including learn more button*/
+    #page-1 .title-container {
+        margin: 0px;
+        text-align: center;
+        width: 100%;
+        gap: .5em;
+        font-size: 3.5em;
+    }
+
+
+    /* icon */
+
+    #page-1 img {
+        padding-top: 2em;
+    }
+
+    /* reinder movements*/
 
     .move-left {
-        transform: translate(-90px, -90px);
+        transform: translate(-50px, -50px);
     }
 
     .move-right {
-        transform: translate(90px, -90px);
+        transform: translate(50px, -50px);
     }
-    #summary .contacts-2{
+
+    #page-1 button {
+        font-size: .5em;
+        padding: 1em 1.5em;
+    }
+
+    /* page 2 */
+    #page-2.wrapper {
+        height: 80vh;
+    }
+
+    /* hidding for phone purposes */
+    #page-2 .product-container.item {
+        display: none;
+    }
+
+    /* hidding for phone purposes */
+    #page-2 .product-container.single-item {
+        display: block;
+    }
+
+
+    #page-2.wrapper .title-container h1 {
+        margin-top: 0px;
+    }
+
+    #page-2 .product-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* modified the slick dots for phone*/
+    /* border for visibility */
+    #page-2 .slick-dots button {
+        border: var(--white) 1px solid;
+        border-radius: 100%;
+    }
+
+    /* Modified Active */
+    #page-2 .slick-dots .slick-active {
+        border: var(--white) 1px solid;
+        border-radius: 100%;
+        background-color: var(--white);
+    }
+
+    /* PAGE 3 */
+    #page-3.wrapper {
+        height: 90vh;
+    }
+
+    #page-3.wrapper .page {
+        padding-top: 2em;
+    }
+
+    /* title container for page 3 */
+
+    #page-3 .title-container {
+        margin: auto;
+        margin-bottom: 2.4em;
+        width: 90%;
+    }
+
+    /* The title Promo Video */
+    #page-3 .title-container h1 {
+        margin-top: 2em;
+        font-size: 2.4em;
+        font-weight: 500;
+    }
+
+
+    #page-3 .tree {
+        margin-top: 5vh;
+        height: 20vh;
+    }
+
+    /* I frame  contains christmas video from yt*/
+
+    #page-3 iframe {
+        width: 95%;
+        margin: auto auto;
+    }
+
+
+    /* products */
+
+
+    #app .product-page.wrapper {
+        height: 75vh;
+    }
+
+    #app .product-page.wrapper:nth-of-type(odd) {
+        height: 100vh;
+    }
+
+    #app .product-page.wrapper .tree {
+        height: 20vh;
+    }
+
+    #app .product-page .title-container {
+        font-size: .8em;
+    }
+
+    #app .product-page .single-item {
+        width: 100%;
+    }
+
+    #app .product-page footer {
+        font-size: .7em;
+        flex-direction: column;
+    }
+
+    #app .product-page footer button {
+        margin-top: 0px;
+        font-size: .8em;
+        flex-direction: column;
+    }
+
+    /* *****************REGISTER PART***************** */
+
+    /* modified height for the wrapper of registter */
+    #register.wrapper {
+        height: 70vh;
+        font-size: .8em;
+        position: relative;
+    }
+
+
+    #register::before {
+        content: "";
+        /* Required for pseudo-elements to display */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../images/red_blink2.png') center/cover no-repeat;
+        opacity: 0.9;
+        border-radius: inherit;
+        z-index: -1;
+        /* This will match the border-radius of the .page element */
+        /* Remove z-index or set it to a positive value if needed */
+    }
+
+    /* Title container margin top  */
+    #register .title-container {
+        margin-top: auto;
+    }
+
+    /* The want more? subscribe text inside title container */
+    #register .title-container h1 {
+        font-size: 2.4em;
+    }
+
+    /* The and get the latest amazing offers first sub title */
+    #register .title-container h4 {
+        font-size: 1em;
+    }
+
+    /* REGISTRATION FORM */
+    #register form#reg-form {
+        margin: 2em auto;
+        width: 80%;
+    }
+
+    #register form#reg-form input {
+        padding: .8em 1.2em;
+    }
+
+
+
+    /* Summary */
+    #app #summary {
+        height: fit-content;
+        font-size: .8em;
+    }
+
+    #summary .contacts-1 {
+        font-size: .7em;
+        display: flex;
         flex-wrap: wrap;
-        gap: 1em;
+        gap: 1.8em;
+        width: 90%;
+        margin: auto;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+
+    #summary .contacts-2 {
+        flex-wrap: wrap;
         width: 80%;
         margin: auto;
     }
+
+    /* nav-right:  */
+
+    /* This is the style of the span, this span serves a label for the navigation */
+    #side-nav {
+        right: 0px;
+    }
+
+
 }
 
 /* Phone Responsive */

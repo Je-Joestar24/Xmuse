@@ -1,8 +1,5 @@
 /* A class for App to make it more clean since these methods and properties belongs to the app */
 class App {
-    /* The app itself the whole page */
-    app = document.getElementById('app');
-    /* pages */
     pages = "page-1 page-2 page-3 page-4 page-5 page-6 register summary".split(" ");
     /* navigation links */
     navLinks = document.querySelectorAll("#side-nav .nav a");
@@ -72,9 +69,42 @@ class App {
         { defaultSrc: 'images/icon_vimeo_01.png', hoverSrc: 'images/icon_vimeo_02.png' }
     ];
 
+    constructor(appId) {
+
+        this.app = document.getElementById('app');
+        /* all product loaded */
+        this.loadProduct();
+        this.handleScroll();
+    
+        /* After loading the products load the sliders */
+        this.loadSlickSliders();
+        
+        /* Add the hover effects for the images */
+        this.addIconHoverEffects();
+
+        /* After all necessary pages and id, assign teh navbar */
+        this.assignNav();
+        /* stored pages */
+    }
+    /* The app itself the whole page */
+    /* pages */
+
     /* The slicker where I used the jquery template */
-    loadSlickSlider() {
-        $('.single-item').slick({
+    loadSlickSliders() {
+        /* for page 2 */
+        $('#page-2 .single-item').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            dots: true,
+            arrows: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        });
+
+        /* for products */
+        $('.no-welcome.product-page .single-item').slick({
             autoplay: true,
             autoplaySpeed: 2000,
             dots: true,
@@ -188,23 +218,19 @@ class App {
     }
 
     /* flying reindeer trigger when scroll */
-    /* I'll fix this to class */
     flyReindeer(scrollPosition) {
         const leftReindeer = this.app.querySelector("#page-1.wrapper > img:first-of-type");
         const rightReindeer = this.app.querySelector("#page-1.wrapper > img:last-of-type");
-    
+
         if (scrollPosition > 100) {
-            // Add classes to move reindeer when scrolled down
             leftReindeer.classList.add("move-left");
             rightReindeer.classList.add("move-right");
         } else {
-            // Remove classes to reset reindeer when scrolling back up
             leftReindeer.classList.remove("move-left");
             rightReindeer.classList.remove("move-right");
         }
     }
-    
-    
+
 
     /* moving trees when scroll */
     moveTrees(scrollPosition) {
@@ -229,21 +255,11 @@ class App {
     }
 
 }
+
 /* waiting for the whole page to load first */
 window.onload = () => {
     /* handle snow and tree animation */
-    const app = new App();
+    const app = new App('app');
 
-    app.handleScroll();
-    /* all product loaded */
-    app.loadProduct();
-    /* After loading the products load the sliders */
-    app.loadSlickSlider();
-    /* Add the hover effects for the images */
-    app.addIconHoverEffects();
-    /* After all necessary pages and id, assign teh navbar */
-    app.assignNav();
-    /* added additional animation for snow */
-    /* stored pages */
 }
 
