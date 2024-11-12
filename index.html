@@ -9,7 +9,7 @@
   <body>
     <div id="app">
       <!-- Page 1 -->
-      <div id="page-1" class="wrapper">
+      <section id="page-1" class="wrapper">
         <div class="page">
           <!-- This contains the titles and the buttons -->
           <div class="title-container">
@@ -31,10 +31,10 @@
 
         <!-- The moving tree -->
         <div class="tree"></div>
-      </div>
+      </section>
 
       <!-- Page 2 -->
-      <div id="page-2" class="wrapper no-welcome">
+      <section id="page-2" class="wrapper no-welcome">
         <div class="page">
           <!-- Contains the title -->
           <div class="title-container">
@@ -115,10 +115,10 @@
           </div>
         </div>
         <footer></footer>
-      </div>
+      </section>
 
       <!-- Page 3 -->
-      <div id="page-3" class="wrapper no-welcome">
+      <section id="page-3" class="wrapper no-welcome">
         <!-- Cloud is the cloud looking snow -->
         <header class="cloud"></header>
         <div class="page">
@@ -138,12 +138,12 @@
           ></iframe>
         </div>
         <div class="tree"></div>
-      </div>
+      </section>
 
       <!-- products loaded here next to page-3 the products preview using js, since they holds thesame logic -->
 
       <!-- Registration/Subscription part of the page -->
-      <div id="register" class="wrapper no-welcome">
+      <section id="register" class="wrapper no-welcome">
         <header class="cloud"></header>
         <div class="page">
           <!-- Contains the title -->
@@ -172,10 +172,10 @@
           </form>
         </div>
         <div class="tree"></div>
-      </div>
+      </section>
 
       <!-- summary part of the screen wich have the contacs -->
-      <div id="summary" class="wrapper no-welcome">
+      <section id="summary" class="wrapper no-welcome">
         <div class="page">
           <div class="title-container">
             <h1>ARE YOU INTERESTED?</h1>
@@ -225,15 +225,15 @@
               </div>
             </div>
 
-            <div class="contacts-2">
-              <img src="images/icon_fb_01.png" alt="fb icon" />
-              <img src="images/icon_twitter_01.png" alt="twitter icon" />
-              <img src="images/icon_gplus_01.png" alt="googleplus" />
-              <img src="images/icon_instagram_01.png" alt="instagram icon" />
-              <img src="images/icon_pinterest_01.png" alt="pinterest icon" />
-              <img src="images/icon_tumblr_01.png" alt="tumblr icon" />
-              <img src="images/icon_vimeo_01.png" alt="vimeo icon" />
-            </div>
+            <ol class="contacts-2">
+              <li><a href="https://facebook.com" target="_blank" aria-label="Facebook"><img src="images/icon_fb_01.png" alt="Facebook icon" /></a></li>
+              <li><a href="https://twitter.com" target="_blank" aria-label="Twitter"><img src="images/icon_twitter_01.png" alt="Twitter icon" /></a></li>
+              <li><a href="https://plus.google.com" target="_blank" aria-label="Google Plus"><img src="images/icon_gplus_01.png" alt="Google Plus icon" /></a></li>
+              <li><a href="https://instagram.com" target="_blank" aria-label="Instagram"><img src="images/icon_instagram_01.png" alt="Instagram icon" /></a></li>
+              <li><a href="https://pinterest.com" target="_blank" aria-label="Pinterest"><img src="images/icon_pinterest_01.png" alt="Pinterest icon" /></a></li>
+              <li><a href="https://tumblr.com" target="_blank" aria-label="Tumblr"><img src="images/icon_tumblr_01.png" alt="Tumblr icon" /></a></li>
+              <li><a href="https://vimeo.com" target="_blank" aria-label="Vimeo"><img src="images/icon_vimeo_01.png" alt="Vimeo icon" /></a></li>
+            </ol>
           </div>
           <footer>
             <p>
@@ -243,20 +243,36 @@
             <p>All right reserved. You can buy this template.</p>
           </footer>
         </div>
-      </div>
+      </section>
     </div>
 
     <!-- The navigation for scrolling -->
     <nav id="side-nav">
       <ul class="nav">
-        <li><span>HOME</span><a href="#home"></a></li>
-        <li><span>HOT OFFER</span><a href="#offer"></a></li>
-        <li><span>ABOUT OFFER</span><a href="#about"></a></li>
-        <li><span>PRODUCT 1</span><a href="#prodduct1"></a></li>
-        <li><span>PRODUCT 2</span><a href="#product2"></a></li>
-        <li><span>PRODUCT 3</span><a href="#product3"></a></li>
-        <li><span>SUBSCRIBE</span><a href="#subscribe"></a></li>
-        <li><span>CONTACTS</span><a href="#contacts"></a></li>
+        <li><span>HOME</span><a href="#home">
+          <img src="/images/menu_item_normal.png" alt="Home">
+        </a></li>
+        <li><span>HOT OFFER</span><a href="#offer">
+          <img src="/images/menu_item_normal.png" alt="Hot Offer">
+        </a></li>
+        <li><span>ABOUT OFFER</span><a href="#about">
+          <img src="/images/menu_item_normal.png" alt="About offer">
+        </a></li>
+        <li><span>PRODUCT 1</span><a href="#prodduct1">
+          <img src="/images/menu_item_normal.png" alt="Product 1">
+        </a></li>
+        <li><span>PRODUCT 2</span><a href="#product2">
+          <img src="/images/menu_item_normal.png" alt="Product 2">
+        </a></li>
+        <li><span>PRODUCT 3</span><a href="#product3">
+          <img src="/images/menu_item_normal.png" alt="Product 3">
+        </a></li>
+        <li><span>SUBSCRIBE</span><a href="#subscribe">
+          <img src="/images/menu_item_normal.png" alt="Product 4">
+        </a></li>
+        <li><span>CONTACTS</span><a href="#contacts">
+          <img src="/images/menu_item_normal.png" alt="product 5">
+        </a></li>
       </ul>
     </nav>
 

@@ -1,3 +1,5 @@
+/* local fonts */
+
 @font-face {
     font-family: 'Chunk';
     src: url('../fonts/Chunk.ttf') format('truetype');
@@ -34,8 +36,13 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+/* default reset */
 * {
     margin: 0px;
+}
+/* set default list style to none */
+ol, ul, li {
+    list-style: none;
 }
 
 /* The snow are in the body tag and I used the fixed attachment to make the snow consistent */
@@ -744,6 +751,7 @@ button {
     /* Vimeo */
 }
 
+
 /* navigation */
 
 /* side nav container */
@@ -754,22 +762,11 @@ button {
     transform: translateY(50%);
 }
 
-/* removing th defautl style */
-#side-nav .nav {
-    list-style-type: none;
-}
 
 /* setting up the a element */
 #side-nav a {
-    padding: 1em;
+    margin-left: .5em;
     display: inline-block;
-    background: url('../images/menu_item_normal.png') no-repeat center;
-}
-
-/* changing the background image on hover */
-#side-nav a:hover {
-    transition: .5s;
-    background: url('../images/menu_item_active.png') no-repeat center;
 }
 
 /* using flex */
@@ -836,14 +833,16 @@ button {
         margin: 0px auto;
     }
 
-/* prorducts */
+    /* prorducts */
 
-#app .product-page footer div{
-    margin-top: auto;
-}
-    #app .product-page footer button{
+    #app .product-page footer div {
+        margin-top: auto;
+    }
+
+    #app .product-page footer button {
         font-size: .9em;
     }
+
     /* subscribe */
 
     #register #reg-form {
@@ -882,9 +881,10 @@ button {
 
     /* page 1 */
 
-    #page-1{
+    #page-1 {
         font-size: .7em;
     }
+
     /* reusable pre designed classes */
     /* The reusable class default styles */
     /* Ensure full-width of the page container and reset margins */
@@ -928,9 +928,9 @@ button {
         font-size: 20px;
     }
 
-    #app .cloud{
-        
-    height: 5em;
+    #app .cloud {
+
+        height: 5em;
     }
 
     #page-1.wrapper {
@@ -1096,7 +1096,7 @@ button {
         position: relative;
     }
 
-    #register .page{
+    #register .page {
         padding-bottom: 2em;
     }
 
@@ -1150,7 +1150,7 @@ button {
         padding-top: 0px;
     }
 
-    #app #summary .page{
+    #app #summary .page {
         margin-top: 0px;
     }
 

@@ -3,6 +3,7 @@ class App {
     pages = "page-1 page-2 page-3 page-4 page-5 page-6 register summary".split(" ");
     /* navigation links */
     navLinks = document.querySelectorAll("#side-nav .nav a");
+    /* The floating label for the nav when hover */
     navDisplay = document.querySelectorAll('#side-nav .nav span');
 
     /* products, with id title sub title image counter/needed number, article then price */
@@ -58,6 +59,7 @@ class App {
         }
     ];
 
+    navLinkIcon = [];
     /* social media icons for hovering */
     socialIcons = [
         { defaultSrc: 'images/icon_fb_01.png', hoverSrc: 'images/icon_fb_02.png' },
@@ -79,15 +81,26 @@ class App {
 
         /* After loading the products load the sliders */
         this.loadSlickSliders();
-
+        
+        /* loading navigation items icons values */
+        this.genrateHoverNavIcons();
+        
         /* Add the hover effects for the images */
-        this.addIconHoverEffects();
+        this.setIconHoverEffects('.contacts-2 img', this.socialIcons);
+        this.setIconHoverEffects('#side-nav .nav a img', this.navLinkIcon);
 
-        /* After all necessary pages and id, assign teh navbar */
+        /* After all necessary pages and id, assign the navbar */
         this.assignNav();
         /* stored pages */
+
     }
 
+    /* for laoding the icons value to be setted Hover effects */
+    genrateHoverNavIcons() {
+        for (let _ = 0; _ < this.navLinks.length; _++)
+            this.navLinkIcon.push({ defaultSrc: '/images/menu_item_normal.png', hoverSrc: '/images/menu_item_active.png' });
+
+    }
     /* The slicker where I used the jquery template */
     loadSlickSliders() {
         /* for page 2 */
@@ -118,15 +131,18 @@ class App {
     /* Dynamic loading for products to reduce reduntant html code, plus reduced image logic, used map filtering here and convert it to string using join */
     loadProduct() {
         const result = this.products.map(product => `
-            <div id="${product.id}" class="wrapper no-welcome product-page">
-                ${(product.images % 2 == 0) ?'<header class="cloud"></header>': ''}
+            <section id="${product.id}" class="wrapper no-welcome product-page">
+                <!-- this tag will only be added if the product number as even to match the bagroundless elements -->
+                ${(product.images % 2 == 0) ? '<header class="cloud"></header>' : ''}
                 <div class="page">
+                    <!-- the title part -->
                     <header class="title-container">
                         <h1>${product.title}</h1>
                         <p></p>
                         <h4>${product.sub}</h4>
                     </header>
                     <div class="product-container">
+                        <!-- the slider of the product showcase its contents -->
                         <div class="single-item">
                             <img src="images/product_0${product.images}_preview_01.jpg" alt="Image 1 for ${product.title}" />
                             <img src="images/product_0${product.images}_preview_02.jpg" alt="Image 2 for ${product.title}" />
@@ -134,6 +150,7 @@ class App {
                         </div>
                     </div>
                     <footer>
+                        <!-- descriptin of the product -->
                         <article>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
                             sequi enim tempora consequatur laboriosam reiciendis repellendus
@@ -144,6 +161,8 @@ class App {
                             voluptatibus, eaque saepe deserunt nulla, ad error. Nobis
                             provident cumque iure! lore
                         </article>
+
+                        <!-- buy button and price -->
                         <div>
                             <h3>${product.price}</h3>
                             <button>BUY NOW</button>
@@ -151,7 +170,7 @@ class App {
                     </footer>
                 </div>
                 <div class="tree"></div>
-            </div>
+            </section>
         `).join("");
 
         const page3Element = this.app.querySelector('#page-3');
@@ -165,12 +184,12 @@ class App {
     }
 
     /* HOver effects to the icons */
-    addIconHoverEffects() {
-        // Select all social icons within the .contacts-2 container
-        const iconElements = this.app.querySelectorAll('.contacts-2 img');
+    setIconHoverEffects(target, icons) {
+        // Add hover offects to all target that is found inside the app
+        const iconElements = document.querySelectorAll(target);
 
         iconElements.forEach((iconElement, index) => {
-            const icon = this.socialIcons[index];
+            const icon = icons[index];
             if (icon) {
                 // Set default image source
                 iconElement.src = icon.defaultSrc;
@@ -204,6 +223,7 @@ class App {
 
             /* for hover and out to display the Navigation Label */
             const targetSection = this.navDisplay[index];
+
             targetSection.setAttribute('style', 'visibility: hidden;')
             link.addEventListener('mouseover', (event) => {
                 event.preventDefault();
@@ -231,7 +251,6 @@ class App {
         }
     }
 
-
     /* moving trees depending on the value that will be passed */
     moveTrees(scrollPosition) {
         const treeWrapper = document.querySelectorAll(".wrapper:nth-of-type(odd) > .tree");
@@ -243,7 +262,7 @@ class App {
         });
     }
 
-    moveSnow(scrollPosition){
+    moveSnow(scrollPosition) {
         document.body.style.backgroundPosition = `center ${scrollPosition * 0.5}px, center ${scrollPosition * 0.8}px`;
     }
     /* scroll event handling */
@@ -261,8 +280,8 @@ class App {
 
 /* waiting for the whole page to load first */
 window.onload = () => {
-    /* handle snow and tree animation */
-    const app = new App('app');
+    /* initialize all needed on the page, the navLinks, the slider, image hover effects, the Products and scroll effects */
+    new App('app');
 
 }
 
