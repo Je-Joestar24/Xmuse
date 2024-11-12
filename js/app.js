@@ -71,14 +71,15 @@ class App {
 
     constructor(appId) {
 
-        this.app = document.getElementById('app');
+        /* The app itself */
+        this.app = document.getElementById(appId);
         /* all product loaded */
         this.loadProduct();
         this.handleScroll();
-    
+
         /* After loading the products load the sliders */
         this.loadSlickSliders();
-        
+
         /* Add the hover effects for the images */
         this.addIconHoverEffects();
 
@@ -86,8 +87,6 @@ class App {
         this.assignNav();
         /* stored pages */
     }
-    /* The app itself the whole page */
-    /* pages */
 
     /* The slicker where I used the jquery template */
     loadSlickSliders() {
@@ -120,6 +119,7 @@ class App {
     loadProduct() {
         const result = this.products.map(product => `
             <div id="${product.id}" class="wrapper no-welcome product-page">
+                ${(product.images % 2 == 0) ?'<header class="cloud"></header>': ''}
                 <div class="page">
                     <header class="title-container">
                         <h1>${product.title}</h1>
@@ -197,7 +197,7 @@ class App {
                 const targetSection = document.getElementById(this.pages[index]);
                 targetSection.scrollIntoView({
                     behavior: "smooth",
-                    block: "center",
+                    block: "start",
                     inline: "nearest"
                 });
             });
@@ -232,7 +232,7 @@ class App {
     }
 
 
-    /* moving trees when scroll */
+    /* moving trees depending on the value that will be passed */
     moveTrees(scrollPosition) {
         const treeWrapper = document.querySelectorAll(".wrapper:nth-of-type(odd) > .tree");
 
@@ -243,12 +243,15 @@ class App {
         });
     }
 
+    moveSnow(scrollPosition){
+        document.body.style.backgroundPosition = `center ${scrollPosition * 0.5}px, center ${scrollPosition * 0.8}px`;
+    }
     /* scroll event handling */
     handleScroll() {
         document.addEventListener("scroll", () => {
             const scrollPosition = window.scrollY;
             /* for snow, I used the body since the wrapper has its own background*/
-            document.body.style.backgroundPosition = `center ${scrollPosition * 0.5}px, center ${scrollPosition * 0.8}px`;
+            this.moveSnow(scrollPosition);
             this.flyReindeer(scrollPosition);
             this.moveTrees(scrollPosition);
         });

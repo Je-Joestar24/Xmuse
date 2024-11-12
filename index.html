@@ -11,6 +11,7 @@
       <!-- Page 1 -->
       <div id="page-1" class="wrapper">
         <div class="page">
+          <!-- This contains the titles and the buttons -->
           <div class="title-container">
             <h1>Christmas</h1>
             <h1>SALE</h1>
@@ -23,7 +24,8 @@
           </div>
         </div>
 
-        <!-- The reindeer -->
+
+        <!-- The reindeers left(1) and right(2) -->
         <img src="/images/pic_01.png" alt="left reindeer" />
         <img src="/images/pic_02.png" alt="right reindeer" />
 
@@ -34,6 +36,7 @@
       <!-- Page 2 -->
       <div id="page-2" class="wrapper no-welcome">
         <div class="page">
+          <!-- Contains the title -->
           <div class="title-container">
             <h1>OUR HOT OFFER</h1>
             <p></p>
@@ -42,6 +45,7 @@
               happy!
             </h4>
           </div>
+          <!-- I used this technique for more responsive without reloading the page -->
           <!-- for Laptop and tablet -->
           <div class="product-container item">
             <div class="card">
@@ -115,6 +119,8 @@
 
       <!-- Page 3 -->
       <div id="page-3" class="wrapper no-welcome">
+        <!-- Cloud is the cloud looking snow -->
+        <header class="cloud"></header>
         <div class="page">
           <div class="title-container">
             <h1>PROMO VIDEO</h1>
@@ -124,6 +130,7 @@
               accusamus in ut.
             </h4>
           </div>
+          <!-- THe video from youtube -->
           <iframe
             src="https://www.youtube.com/embed/OAJUmh4b9mI?autoplay=1"
             frameborder="0"
@@ -133,19 +140,34 @@
         <div class="tree"></div>
       </div>
 
-      <!-- products loaded here next to page-3 -->
+      <!-- products loaded here next to page-3 the products preview using js, since they holds thesame logic -->
 
+      <!-- Registration/Subscription part of the page -->
       <div id="register" class="wrapper no-welcome">
+        <header class="cloud"></header>
         <div class="page">
+          <!-- Contains the title -->
           <div class="title-container">
             <h1>WANT MORE? SUBSCRIBE!</h1>
             <p></p>
             <h4>And get the latest amazing offers first</h4>
           </div>
           <!-- register form -->
-          <form action="#" id="reg-form">
-            <input id="user_name" name="user_name" placeholder="ENTER NAME" type="text" required/>
-            <input id="email" name="email" placeholder="ENTER EMAIL" type="email" required />
+          <form action="#register" id="reg-form">
+            <input
+              id="user_name"
+              name="user_name"
+              placeholder="ENTER NAME"
+              type="text"
+              required
+            />
+            <input
+              id="email"
+              name="email"
+              placeholder="ENTER EMAIL"
+              type="email"
+              required
+            />
             <button type="submit">SUBMIT</button>
           </form>
         </div>
@@ -204,34 +226,13 @@
             </div>
 
             <div class="contacts-2">
-              <img
-                src="images/icon_fb_01.png"
-                alt="fb icon"
-              />
-              <img
-                src="images/icon_twitter_01.png"
-                alt="twitter icon"
-              />
-              <img
-                src="images/icon_gplus_01.png"
-                alt="googleplus"
-              />
-              <img
-                src="images/icon_instagram_01.png"
-                alt="instagram icon"
-              />
-              <img
-                src="images/icon_pinterest_01.png"
-                alt="pinterest icon"
-              />
-              <img
-                src="images/icon_tumblr_01.png"
-                alt="tumblr icon"
-              />
-              <img
-                src="images/icon_vimeo_01.png"
-                alt="vimeo icon"
-              />
+              <img src="images/icon_fb_01.png" alt="fb icon" />
+              <img src="images/icon_twitter_01.png" alt="twitter icon" />
+              <img src="images/icon_gplus_01.png" alt="googleplus" />
+              <img src="images/icon_instagram_01.png" alt="instagram icon" />
+              <img src="images/icon_pinterest_01.png" alt="pinterest icon" />
+              <img src="images/icon_tumblr_01.png" alt="tumblr icon" />
+              <img src="images/icon_vimeo_01.png" alt="vimeo icon" />
             </div>
           </div>
           <footer>
@@ -248,16 +249,17 @@
     <!-- The navigation for scrolling -->
     <nav id="side-nav">
       <ul class="nav">
-        <li><span>HOME</span><a href="#"></a></li>
-        <li><span>HOT OFFER</span><a href="#"></a></li>
-        <li><span>ABOUT OFFER</span><a href="#"></a></li>
-        <li><span>PRODUCT 1</span><a href="#"></a></li>
-        <li><span>PRODUCT 2</span><a href="#"></a></li>
-        <li><span>PRODUCT 3</span><a href="#"></a></li>
-        <li><span>SUBSCRIBE</span><a href="#"></a></li>
-        <li><span>CONTACTS</span><a href="#"></a></li>
+        <li><span>HOME</span><a href="#home"></a></li>
+        <li><span>HOT OFFER</span><a href="#offer"></a></li>
+        <li><span>ABOUT OFFER</span><a href="#about"></a></li>
+        <li><span>PRODUCT 1</span><a href="#prodduct1"></a></li>
+        <li><span>PRODUCT 2</span><a href="#product2"></a></li>
+        <li><span>PRODUCT 3</span><a href="#product3"></a></li>
+        <li><span>SUBSCRIBE</span><a href="#subscribe"></a></li>
+        <li><span>CONTACTS</span><a href="#contacts"></a></li>
       </ul>
     </nav>
+
     <!-- Slick CSS -->
     <link
       rel="stylesheet"

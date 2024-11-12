@@ -44,10 +44,11 @@ body {
     background-color: var(--bg);
     background-attachment: fixed;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     overflow: auto;
     background-position: center top;
 }
+
 
 
 button {
@@ -73,7 +74,6 @@ button {
 
 /* wrapper that spand to the whole width */
 .wrapper {
-    height: 100vh;
     display: flex;
     justify-content: center;
 }
@@ -88,12 +88,10 @@ button {
 /* All odd wrapper that has cloud background*/
 .wrapper:nth-of-type(odd):not(:first-of-type) {
     color: var(--white);
-    background: url('../images/section_footer.png') no-repeat top;
 }
 
 /* Select all odd .wrapper elements except the first */
 .wrapper:nth-of-type(2n + 1):not(:first-of-type) {
-    height: 120vh;
     flex-direction: column;
 }
 
@@ -111,6 +109,7 @@ button {
 
 .wrapper:nth-of-type(even) {
     background-color: var(--bg-2);
+    box-shadow: 0 2px 0 0 var(--bg-2);
     color: var(--black);
 }
 
@@ -118,6 +117,15 @@ button {
 .page {
     width: 1200px;
     margin: auto;
+}
+
+/* The cloud background to avoid overlapping */
+#app .cloud {
+    background: url('../images/section_footer.png') repeat-x;
+    background-size: auto 100%;
+    background-position: top center;
+    height: 10em;
+    width: 100%;
 }
 
 .wrapper:nth-of-type(2n + 1):not(:first-of-type) .page {
@@ -190,11 +198,6 @@ button {
 
 /* **********************************page-1********************************** */
 
-#page-1.wrapper {
-    align-content: baseline;
-    position: relative;
-    height: 110vh;
-}
 
 /* reindeer default */
 #page-1.wrapper>img {
@@ -316,9 +319,6 @@ button {
 
 /* ***************************************page-2*************************************** */
 
-#page-2.wrapper {
-    height: 70vh;
-}
 
 /* Title of page 2 */
 #page-2 .title-container {
@@ -428,8 +428,8 @@ button {
 /* I frame  contains christmas video from yt*/
 
 #page-3 iframe {
-    width: 78%;
-    height: 58.5%;
+    width: 85%;
+    height: 30em;
     margin: 0px auto;
 }
 
@@ -446,16 +446,6 @@ button {
 
 .wrapper.product-page:nth-of-type(odd) header h1 {
     margin-top: 0px;
-}
-
-/* for all white backgrounded products */
-.wrapper.product-page:nth-of-type(even) {
-    height: 90vh;
-}
-
-/* for all red backgrounded products */
-.wrapper.product-page:nth-of-type(odd) {
-    height: 125vh;
 }
 
 /* all even product page heights */
@@ -564,10 +554,6 @@ button {
 
 /* modified height for the wrapper of registter */
 #register {
-    height: 95vh;
-}
-
-#register {
     position: relative;
 }
 
@@ -606,7 +592,7 @@ button {
 /* REGISTRATION FORM */
 #register form {
     margin: 5em auto;
-    width: 40%;
+    width: 30%;
     height: 20vh;
     display: grid;
     grid-template-columns: 1fr;
@@ -638,7 +624,7 @@ button {
 }
 
 /* **********************summary********************** */
-#summary.wrapper{
+#summary.wrapper {
     height: fit-content;
     padding-bottom: 1em;
 }
@@ -650,7 +636,6 @@ button {
 
 #summary.wrapper {
     position: relative;
-    height: 65vh;
 }
 
 /* Setting all the image to be pointable */
@@ -675,6 +660,7 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
 /* These crads contains the icons and details */
 #summary .card {
     text-align: center;
@@ -816,28 +802,16 @@ button {
     pointer-events: auto;
 }
 
-/* reindeer */
-#page-1.wrapper>img {
-    transition: transform 0.5s ease-in-out;
-    /* Smooth transition */
-}
 
-.move-left {
-    transform: translate(-350px, -350px);
-}
-
-.move-right {
-    transform: translate(350px, -350px);
-}
 
 /* *****************************************RESPONSIVE***************************************** */
 /* Tablet responsive */
 
 
-/* tablet */
-@media screen and (max-width: 1440px) {
+/* laptop */
+@media screen and (max-width: 1445px) {
     body {
-        font-size: 15px;
+        font-size: 19px;
     }
 
 
@@ -852,29 +826,25 @@ button {
         padding: 0;
     }
 
+
     /* page-3 */
 
-    #page-3.wrapper {
-        height: 145vh;
+
+    #page-3 iframe {
+        width: 70%em;
+        height: 25em;
+        margin: 0px auto;
     }
 
-    #page-3.wrapper iframe {
-        height: 66%;
-    }
+/* prorducts */
 
-    /* producs */
-    #app .product-page.wrapper {
-        height: 120vh;
+#app .product-page footer div{
+    margin-top: auto;
+}
+    #app .product-page footer button{
+        font-size: .9em;
     }
-
-    #app .product-page.wrapper:nth-of-type(odd) {
-        height: 155vh;
-    }
-
     /* subscribe */
-    #register.wrapper {
-        height: 100vh
-    }
 
     #register #reg-form {
         width: 25%;
@@ -887,9 +857,8 @@ button {
     }
 
     /* Summary */
-
-    #summary.wrapper .page {
-        margin-top: 0px;
+    #summary.wrapper {
+        height: fit-content;
     }
 
     /* reinder */
@@ -902,17 +871,20 @@ button {
         transform: translate(200px, -200px);
     }
 
+
 }
 
 
 /* tABLET */
 @media screen and (max-width: 991px) {
 
-    body {
-        font-size: 10px;
+
+
+    /* page 1 */
+
+    #page-1{
+        font-size: .7em;
     }
-
-
     /* reusable pre designed classes */
     /* The reusable class default styles */
     /* Ensure full-width of the page container and reset margins */
@@ -924,25 +896,7 @@ button {
         padding: 0;
     }
 
-    /* page-3 */
-
-    #page-3.wrapper {
-        height: 145vh;
-    }
-
-    #page-3.wrapper iframe {
-        height: 66%;
-    }
-
-    /* producs */
-    #app .product-page.wrapper {
-        height: 105vh;
-    }
-
     /* subscribe */
-    #register.wrapper {
-        height: 120vh
-    }
 
     #register #reg-form {
         margin-top: 1em;
@@ -974,8 +928,9 @@ button {
         font-size: 20px;
     }
 
-    #app .wrapper {
-        background-size: auto 10%;
+    #app .cloud{
+        
+    height: 5em;
     }
 
     #page-1.wrapper {
@@ -1001,6 +956,19 @@ button {
     /* right reindeer */
     #page-1.wrapper>img:last-of-type {
         right: 15%;
+    }
+
+    #page-1.wrapper>img {
+        transition: transform 0.5s ease-in-out;
+        /* Smooth transition */
+    }
+
+    .move-left {
+        transform: translate(-350px, -350px);
+    }
+
+    .move-right {
+        transform: translate(350px, -350px);
     }
 
     /* title container where it contains all the title part including learn more button*/
@@ -1035,9 +1003,6 @@ button {
     }
 
     /* page 2 */
-    #page-2.wrapper {
-        height: 80vh;
-    }
 
     /* hidding for phone purposes */
     #page-2 .product-container.item {
@@ -1073,12 +1038,9 @@ button {
     }
 
     /* PAGE 3 */
-    #page-3.wrapper {
-        height: 90vh;
-    }
 
     #page-3.wrapper .page {
-        padding-top: 2em;
+        padding: 1.5em 0px;
     }
 
     /* title container for page 3 */
@@ -1091,39 +1053,21 @@ button {
 
     /* The title Promo Video */
     #page-3 .title-container h1 {
-        margin-top: 2em;
         font-size: 2.4em;
         font-weight: 500;
     }
 
 
-    #page-3 .tree {
-        margin-top: 5vh;
-        height: 20vh;
-    }
-
     /* I frame  contains christmas video from yt*/
 
     #page-3 iframe {
         width: 95%;
+        height: 12em;
         margin: auto auto;
     }
 
 
     /* products */
-
-
-    #app .product-page.wrapper {
-        height: 75vh;
-    }
-
-    #app .product-page.wrapper:nth-of-type(odd) {
-        height: 100vh;
-    }
-
-    #app .product-page.wrapper .tree {
-        height: 20vh;
-    }
 
     #app .product-page .title-container {
         font-size: .8em;
@@ -1148,11 +1092,13 @@ button {
 
     /* modified height for the wrapper of registter */
     #register.wrapper {
-        height: 70vh;
         font-size: .8em;
         position: relative;
     }
 
+    #register .page{
+        padding-bottom: 2em;
+    }
 
     #register::before {
         content: "";
@@ -1201,6 +1147,11 @@ button {
     #app #summary {
         height: fit-content;
         font-size: .8em;
+        padding-top: 0px;
+    }
+
+    #app #summary .page{
+        margin-top: 0px;
     }
 
     #summary .contacts-1 {
